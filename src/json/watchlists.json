@@ -1,0 +1,10 @@
+{
+  "groups": [
+    {
+      "id": "default",
+      "name": "Main Watchlist",
+      "color": "#3B82F6",
+      "items": ["MSFT", "AAPL", "NVDA", "GOOGL", "AMZN"]
+    }
+  ]
+}

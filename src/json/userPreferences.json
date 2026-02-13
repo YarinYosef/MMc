@@ -1,0 +1,10 @@
+{
+  "theme": "dark",
+  "updateSpeed": "normal",
+  "showTooltips": true,
+  "animationsEnabled": true,
+  "newsAutoScroll": true,
+  "defaultTimeframe": "1D",
+  "compassLayerFilter": "all",
+  "soundEnabled": false
+}
