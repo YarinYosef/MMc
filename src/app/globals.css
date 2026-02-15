@@ -1,0 +1,526 @@
+@import "tailwindcss";
+
+/* =============================================
+   MMC Dashboard - Dark Theme Variables
+   ============================================= */
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+
+  /* Surface hierarchy – Phantom Trade tokens */
+  --surface-0: #000000;
+  /* deepest background */
+  --surface-1: #131313;
+  /* panels, cards */
+  --surface-2: rgba(255, 255, 255, 0.06);
+  /* elevated surfaces */
+  --surface-3: rgba(255, 255, 255, 0.1);
+  /* hover states */
+  --surface-4: rgba(255, 255, 255, 0.15);
+  /* active/selected */
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #999999;
+  --text-muted: #777777;
+  --text-disabled: #555555;
+
+  /* Chart colors */
+  --chart-positive: #22c55e;
+  --chart-negative: #ef4444;
+  --chart-neutral: #6b7280;
+  --chart-accent: #ab9ff2;
+  --chart-warning: #f59e0b;
+  --chart-info: #06b6d4;
+  --chart-grid: rgba(255, 255, 255, 0.03);
+
+  /* Compass status */
+  --compass-bullish: #22c55e;
+  --compass-bullish-light: #86efac;
+  --compass-neutral: #9ca3af;
+  --compass-bearish-light: #fca5a5;
+  --compass-bearish: #ef4444;
+
+  /* News feed */
+  --news-global: #ab9ff2;
+  --news-trend: #8b5cf6;
+  --news-looking: #f59e0b;
+  --news-watchlist: #22c55e;
+
+  /* Z-index layers */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-popover: 50;
+  --z-toast: 60;
+  --z-tooltip: 70;
+  --z-rating: 100;
+
+  /* Borders */
+  --border-subtle: #000000;
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+
+  /* Spacing */
+  --panel-padding: 8px;
+  --widget-gap: 4px;
+  --section-gap: 8px;
+
+  /* Border Radius */
+  --radius-widget: 0.8rem;
+  /* 8px default, can be changed here */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/* =============================================
+   Base Styles
+   ============================================= */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =============================================
+   Custom Scrollbars
+   ============================================= */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-4);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-3) var(--surface-1);
+}
+
+/* =============================================
+   Animations
+   ============================================= */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoom-in-95 {
+  from {
+    transform: scale(0.95);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom-out-95 {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(171, 159, 242, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 8px 2px rgba(171, 159, 242, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-in {
+  animation: fade-in 150ms ease-out, zoom-in-95 150ms ease-out;
+}
+
+.animate-out {
+  animation: fade-out 100ms ease-in, zoom-out-95 100ms ease-in;
+}
+
+.animate-slide-up {
+  animation: slide-up 200ms ease-out;
+}
+
+.animate-slide-down {
+  animation: slide-down 200ms ease-out;
+}
+
+.animate-slide-right {
+  animation: slide-in-right 300ms ease-out;
+}
+
+.animate-slide-left {
+  animation: slide-in-left 300ms ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* =============================================
+   Skeleton Loading
+   ============================================= */
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--surface-2) 25%,
+      var(--surface-3) 50%,
+      var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 10px;
+  margin-bottom: 6px;
+}
+
+.skeleton-chart {
+  height: 120px;
+  margin: 8px 0;
+}
+
+.skeleton-metric {
+  height: 24px;
+  width: 60px;
+}
+
+.skeleton-text,
+.skeleton-chart,
+.skeleton-metric {
+  background: linear-gradient(90deg,
+      var(--surface-2) 25%,
+      var(--surface-3) 50%,
+      var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* =============================================
+   Terminal / News Feed
+   ============================================= */
+.font-terminal {
+  font-family: 'Courier New', Consolas, 'Liberation Mono', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* News column headers */
+.news-col-global {
+  border-top: 2px solid var(--news-global);
+}
+
+.news-col-trend {
+  border-top: 2px solid var(--news-trend);
+}
+
+.news-col-looking {
+  border-top: 2px solid var(--news-looking);
+}
+
+.news-col-watchlist {
+  border-top: 2px solid var(--news-watchlist);
+}
+
+/* =============================================
+   Compass Widgets
+   ============================================= */
+.compass-widget {
+  transition: all 200ms ease-out;
+}
+
+.compass-widget:hover {
+  background-color: var(--surface-2);
+}
+
+.compass-widget[data-open="true"] {
+  background-color: var(--surface-2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* =============================================
+   Chart Containers
+   ============================================= */
+.chart-container {
+  transition: opacity 150ms ease;
+}
+
+.chart-container:hover {
+  opacity: 0.92;
+}
+
+.chart-container:active {
+  opacity: 0.85;
+}
+
+/* Recharts overrides for dark theme */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--chart-grid);
+}
+
+.recharts-tooltip-wrapper {
+  z-index: var(--z-tooltip) !important;
+}
+
+.recharts-default-tooltip {
+  background-color: var(--surface-2) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: 4px !important;
+}
+
+.recharts-legend-item-text {
+  color: var(--text-secondary) !important;
+  font-size: 10px !important;
+}
+
+/* =============================================
+   Drag and Drop
+   ============================================= */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+[data-dragging="true"] {
+  opacity: 0.5;
+  cursor: grabbing !important;
+}
+
+[data-drop-target="true"] {
+  outline: 2px dashed var(--chart-accent);
+  outline-offset: -2px;
+}
+
+/* =============================================
+   Toast Notifications (react-toastify)
+   ============================================= */
+.Toastify__toast-container {
+  z-index: var(--z-toast) !important;
+}
+
+.Toastify__toast {
+  background-color: var(--surface-2) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.Toastify__toast--success {
+  border-left: 3px solid var(--chart-positive) !important;
+}
+
+.Toastify__toast--error {
+  border-left: 3px solid var(--chart-negative) !important;
+}
+
+.Toastify__toast--warning {
+  border-left: 3px solid var(--chart-warning) !important;
+}
+
+.Toastify__toast--info {
+  border-left: 3px solid var(--chart-accent) !important;
+}
+
+.Toastify__progress-bar {
+  background: var(--chart-accent) !important;
+}
+
+.Toastify__close-button {
+  color: var(--text-muted) !important;
+}
+
+/* =============================================
+   Modal & Overlay Z-Index Layering
+   ============================================= */
+.modal-overlay {
+  z-index: var(--z-modal);
+}
+
+.popover-overlay {
+  z-index: var(--z-popover);
+}
+
+.tooltip-overlay {
+  z-index: var(--z-tooltip);
+}
+
+/* =============================================
+   Interactive Element Transitions
+   ============================================= */
+button,
+[role="button"] {
+  transition: background-color 150ms ease, color 150ms ease, opacity 150ms ease, transform 100ms ease;
+}
+
+button:active:not(:disabled),
+[role="button"]:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* =============================================
+   Focus Styles
+   ============================================= */
+:focus-visible {
+  outline: 2px solid var(--chart-accent);
+  outline-offset: 2px;
+}
+
+/* Remove focus outline on mouse click */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* =============================================
+   Widget Section Headers
+   ============================================= */
+.widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  user-select: none;
+}
+
+/* =============================================
+   Panel Resize Handle
+   ============================================= */
+.resize-handle {
+  position: relative;
+  cursor: row-resize;
+  height: 4px;
+  background: var(--border-subtle);
+  transition: background 150ms ease;
+}
+
+.resize-handle:hover,
+.resize-handle.active {
+  background: rgba(171, 159, 242, 0.5);
+}
+
+.resize-handle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 2px;
+  background: var(--surface-4);
+  border-radius: 1px;
+}
