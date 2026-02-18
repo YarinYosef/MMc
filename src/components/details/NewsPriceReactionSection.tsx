@@ -7,6 +7,7 @@ import {
 import { useDetailsStore } from '@/stores/useDetailsStore';
 import { useMarketStore } from '@/stores/useMarketStore';
 import { generatePriceHistory } from '@/data/generators/marketDataEngine';
+import { cn } from '@/lib/utils';
 
 interface NewsEvent {
   index: number;
@@ -25,11 +26,11 @@ const MOCK_HEADLINES = [
   'Share buyback authorized',
 ];
 
-export function NewsPriceReaction() {
-  const selectedSymbol = useDetailsStore((s) => s.selectedSymbol);
+export function NewsPriceReactionSection({ symbol, expanded }: { symbol: string; expanded?: boolean }) {
+  const setExpandedChart = useDetailsStore((s) => s.setExpandedChart);
   const getTicker = useMarketStore((s) => s.getTicker);
 
-  const ticker = selectedSymbol ? getTicker(selectedSymbol) : null;
+  const ticker = getTicker(symbol);
 
   const { chartData } = useMemo(() => {
     if (!ticker) return { chartData: [], newsEvents: [] };
@@ -66,7 +67,7 @@ export function NewsPriceReaction() {
     return { chartData: chart, newsEvents: events };
   }, [ticker]);
 
-  if (!selectedSymbol || !ticker) {
+  if (!ticker) {
     return (
       <div className="h-full flex items-center justify-center text-[#999999] text-xs">
         Select a ticker to view news-price reaction
@@ -75,11 +76,18 @@ export function NewsPriceReaction() {
   }
 
   return (
-    <div className="h-full flex flex-col">
-      <div className="text-[10px] text-[#999999] px-2 pb-1">
-        Price action vs narrative confirmation - {selectedSymbol}
+    <div className="space-y-1">
+      <div className="text-[10px] text-[#999999]">
+        Price action vs narrative confirmation - {symbol}
       </div>
-      <div className="flex-1 min-h-0">
+      <div
+        className={cn(
+          expanded ? 'h-[60vh]' : 'h-[180px]',
+          'overflow-hidden',
+          !expanded && 'cursor-pointer hover:opacity-90 transition-opacity'
+        )}
+        onClick={expanded ? undefined : () => setExpandedChart({ section: 'newsprice', chartId: 'newsprice' })}
+      >
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={chartData} margin={{ top: 10, right: 10, bottom: 5, left: 5 }}>
             <CartesianGrid stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
@@ -106,7 +114,7 @@ export function NewsPriceReaction() {
                 if (name === 'price') return [`$${value.toFixed(2)}`, 'Price'];
                 if (name === 'sentiment') return [value, 'Sentiment'];
                 return [value, name];
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
               }) as any}
               labelFormatter={(label, payload) => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -149,7 +157,7 @@ export function NewsPriceReaction() {
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-      <div className="flex gap-4 px-2 py-1 border-t border-white/[0.08]">
+      <div className="flex gap-4 px-0 py-1 border-t border-white/[0.08]">
         <div className="flex items-center gap-1">
           <div className="w-3 h-0.5 bg-[#AB9FF2]" />
           <span className="text-[10px] text-[#999999]">Price</span>

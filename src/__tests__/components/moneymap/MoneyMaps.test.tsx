@@ -21,9 +21,6 @@ jest.mock('@/components/moneymap/maps/StockSelection', () => ({
 jest.mock('@/components/moneymap/guidance/InsiderBuybackFlow', () => ({
   InsiderBuybackFlow: () => <div data-testid="insider-flow">Insider Flow</div>,
 }));
-jest.mock('@/components/moneymap/guidance/NewsPriceReaction', () => ({
-  NewsPriceReaction: () => <div data-testid="news-price">News Price</div>,
-}));
 jest.mock('@/components/moneymap/support/HedgeMap', () => ({
   HedgeMap: () => <div data-testid="hedge-map">Hedge Map</div>,
 }));

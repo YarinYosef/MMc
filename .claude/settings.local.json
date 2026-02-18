@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(claude mcp remove:*)",
+      "Bash(claude mcp add:*)",
+      "Bash(CLAUDECODE= claude mcp remove:*)",
+      "Bash(CLAUDECODE= claude mcp add --transport http webmcp \"https://webmcp-backend-prod-v2.alexmnahas.workers.dev/mcp?key=117622bd-e2c3-459a-b9d2-a04825d83c5f\")",
+      "mcp__webmcp__extension_tool_tab_operations",
+      "mcp__webmcp__extension_tool_dom_extract_structure",
+      "mcp__webmcp__extension_tool_dom_extract_region",
+      "mcp__webmcp__extension_tool_userscripts_run_quick",
+      "mcp__webmcp__extension_tool_screenshot_active_tab",
+      "mcp__webmcp__extension_tool_dom_extract_content",
+      "mcp__webmcp__extension_tool_check_available_apis",
+      "Bash(claude mcp:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(npm install:*)",
+      "Bash(npm root:*)",
+      "Bash(webmcp-bridge:*)",
+      "Bash(npx webmcp-bridge:*)",
+      "Bash(git clone:*)",
+      "Bash(CLAUDECODE= claude mcp add webmcp-bridge webmcp-bridge)",
+      "Bash(CLAUDECODE= claude mcp list:*)",
+      "mcp__webmcp__extension_tool_window_operations"
+    ]
+  }
+}

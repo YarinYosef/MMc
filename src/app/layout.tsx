@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { TooltipProvider } from '@/components/ui/Tooltip';
 import { ToastContainer } from 'react-toastify';
+import WebMCPProvider from '@/components/WebMCPProvider';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <WebMCPProvider />
         <TooltipProvider delayDuration={200}>
           {children}
         </TooltipProvider>

@@ -29,7 +29,7 @@ import { VolumeSection } from './VolumeSection';
 import { OptionsSection } from './OptionsSection';
 import { OrderBookSection } from './OrderBookSection';
 import { InsiderSection } from './InsiderSection';
-import { NewsPriceReaction } from '@/components/moneymap/guidance/NewsPriceReaction';
+import { NewsPriceReactionSection } from './NewsPriceReactionSection';
 
 const SECTION_LABELS: Record<DetailsSection, string> = {
   fundamentals: 'Fundamentals',
@@ -78,7 +78,7 @@ function SortableSection({ id, symbol, minimized, onToggle }: SortableSectionPro
       case 'insider':
         return <InsiderSection symbol={symbol} />;
       case 'newsprice':
-        return <div className="h-[220px]"><NewsPriceReaction /></div>;
+        return <NewsPriceReactionSection symbol={symbol} />;
       default:
         return null;
     }
@@ -164,7 +164,7 @@ function ExpandedChartContent({ section, symbol }: { section: DetailsSection; sy
     case 'insider':
       return <InsiderSection symbol={symbol} expanded />;
     case 'newsprice':
-      return <NewsPriceReaction />;
+      return <NewsPriceReactionSection symbol={symbol} expanded />;
     default:
       return null;
   }

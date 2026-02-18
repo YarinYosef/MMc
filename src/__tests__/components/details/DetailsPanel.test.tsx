@@ -80,8 +80,8 @@ jest.mock('@/components/details/OrderBookSection', () => ({
 jest.mock('@/components/details/InsiderSection', () => ({
   InsiderSection: ({ symbol }: { symbol: string }) => <div data-testid="insider-section">Insider for {symbol}</div>,
 }));
-jest.mock('@/components/moneymap/guidance/NewsPriceReaction', () => ({
-  NewsPriceReaction: () => <div data-testid="newsprice-section">NewsPriceReaction content</div>,
+jest.mock('@/components/details/NewsPriceReactionSection', () => ({
+  NewsPriceReactionSection: ({ symbol }: { symbol: string }) => <div data-testid="newsprice-section">NewsPriceReaction for {symbol}</div>,
 }));
 
 const mockTicker: Ticker = {
