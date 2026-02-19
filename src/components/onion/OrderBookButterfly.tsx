@@ -105,7 +105,7 @@ export function OrderBookButterfly() {
         .attr('y', y + barHeight / 2)
         .attr('text-anchor', 'end')
         .attr('dominant-baseline', 'central')
-        .attr('fill', '#22C55E')
+        .attr('fill', '#2EC08B')
         .attr('font-size', '8px')
         .attr('font-weight', '500')
         .text(bid.price.toFixed(2));
@@ -153,7 +153,7 @@ export function OrderBookButterfly() {
         .attr('y', y + barHeight / 2)
         .attr('text-anchor', 'start')
         .attr('dominant-baseline', 'central')
-        .attr('fill', '#EF4444')
+        .attr('fill', '#FF7243')
         .attr('font-size', '8px')
         .attr('font-weight', '500')
         .text(ask.price.toFixed(2));
@@ -176,7 +176,7 @@ export function OrderBookButterfly() {
       .attr('x', centerX / 2)
       .attr('y', -6)
       .attr('text-anchor', 'middle')
-      .attr('fill', '#22C55E')
+      .attr('fill', '#2EC08B')
       .attr('font-size', '9px')
       .attr('font-weight', '600')
       .text('BUY');
@@ -185,7 +185,7 @@ export function OrderBookButterfly() {
       .attr('x', centerX + centerX / 2)
       .attr('y', -6)
       .attr('text-anchor', 'middle')
-      .attr('fill', '#EF4444')
+      .attr('fill', '#FF7243')
       .attr('font-size', '9px')
       .attr('font-weight', '600')
       .text('SELL');

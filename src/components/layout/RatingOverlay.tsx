@@ -91,7 +91,8 @@ export function RatingOverlay() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="bg-[#131313] border border-black rounded-xl shadow-xl p-6 w-96"
+            className="bg-[#131313] border border-black rounded-xl p-6 w-96"
+            style={{ boxShadow: 'rgba(0,0,0,0.2) 0px 2px 4px 0px, rgba(255,255,255,0.06) 0px 1px 0px 0px inset, rgba(255,255,255,0.06) -1px 0px 0px 0px inset, rgba(255,255,255,0.06) 1px 0px 0px 0px inset, rgba(255,255,255,0.06) 0px -1px 0px 0px inset' }}
             onClick={(e) => e.stopPropagation()}
           >
             {submitted ? (
@@ -115,7 +116,7 @@ export function RatingOverlay() {
                 )}
                 <button
                   onClick={handleClose}
-                  className="mt-4 px-4 py-1.5 text-xs text-[#999999] rounded border border-black hover:bg-white/[0.06] transition-colors"
+                  className="mt-4 px-4 py-1.5 text-xs text-[#999999] rounded border border-white/[0.06] hover:bg-white/[0.06] transition-colors"
                 >
                   Close
                 </button>
@@ -141,10 +142,10 @@ export function RatingOverlay() {
                         'w-8 h-8 rounded text-xs font-mono font-bold transition-all',
                         val <= (hoveredRating ?? rating ?? 0)
                           ? val <= 3
-                            ? 'bg-red-500 text-white scale-105'
+                            ? 'bg-[#FF7243] text-white scale-105'
                             : val <= 6
-                              ? 'bg-amber-500 text-white scale-105'
-                              : 'bg-green-500 text-white scale-105'
+                              ? 'bg-[#CD8554] text-white scale-105'
+                              : 'bg-[#2EC08B] text-white scale-105'
                           : 'bg-white/[0.06] text-[#999999] hover:bg-white/10'
                       )}
                     >
@@ -171,7 +172,7 @@ export function RatingOverlay() {
                 <div className="flex gap-2">
                   <button
                     onClick={handleClose}
-                    className="flex-1 py-1.5 text-xs text-[#999999] hover:text-white rounded border border-black hover:bg-white/[0.06] transition-colors"
+                    className="flex-1 py-1.5 text-xs text-[#999999] hover:text-white rounded border border-white/[0.06] hover:bg-white/[0.06] transition-colors"
                   >
                     Cancel
                   </button>

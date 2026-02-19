@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 import { WidgetContainer } from '@/components/layout/WidgetContainer';
 import { useScreenerStore } from '@/stores/useScreenerStore';
@@ -8,20 +8,6 @@ import { useDetailsStore } from '@/stores/useDetailsStore';
 import { useMarketStore } from '@/stores/useMarketStore';
 import { TICKER_UNIVERSE } from '@/data/constants/tickers';
 import { type ScreenerSortField, type ScreenerPreset } from '@/data/types/screener';
-
-const SECTOR_ABBREV: Record<string, string> = {
-  Technology: 'Tech',
-  Healthcare: 'HC',
-  Financials: 'Fin',
-  Consumer: 'Con',
-  Energy: 'Enrg',
-  Industrials: 'Ind',
-  'Real Estate': 'RE',
-  Communication: 'Comm',
-  Staples: 'Stpl',
-};
-
-const tickerDefMap = new Map(TICKER_UNIVERSE.map((t) => [t.symbol, t]));
 
 const PRESETS: { key: ScreenerPreset; label: string }[] = [
   { key: 'all', label: 'All' },
@@ -36,24 +22,7 @@ const COLUMNS: { key: ScreenerSortField; label: string; align: 'left' | 'right' 
   { key: 'symbol', label: 'Ticker', align: 'left' },
   { key: 'price', label: 'Price', align: 'right' },
   { key: 'changePercent', label: 'Chg%', align: 'right' },
-  { key: 'volume', label: 'Vol', align: 'right' },
-  { key: 'marketCap', label: 'MCap', align: 'right' },
-  { key: 'pe', label: 'P/E', align: 'right' },
 ];
-
-function formatVolume(vol: number): string {
-  if (vol >= 1e9) return (vol / 1e9).toFixed(1) + 'B';
-  if (vol >= 1e6) return (vol / 1e6).toFixed(1) + 'M';
-  if (vol >= 1e3) return (vol / 1e3).toFixed(0) + 'K';
-  return vol.toString();
-}
-
-function formatMarketCap(cap: number): string {
-  if (cap >= 1e12) return (cap / 1e12).toFixed(1) + 'T';
-  if (cap >= 1e9) return (cap / 1e9).toFixed(0) + 'B';
-  if (cap >= 1e6) return (cap / 1e6).toFixed(0) + 'M';
-  return cap.toString();
-}
 
 export function StockScreener() {
   const filters = useScreenerStore((s) => s.filters);
@@ -99,7 +68,8 @@ export function StockScreener() {
               value={filters.search}
               onChange={(e) => setFilter('search', e.target.value)}
               placeholder="Search ticker..."
-              className="w-full bg-white/[0.04] border border-white/[0.06] rounded px-2 py-1 text-[10px] text-white placeholder-[#555555] outline-none focus:border-[#AB9FF2]/50 transition-colors"
+              className="w-full bg-white/[0.03] border border-white/[0.08] rounded-md px-2 py-1 text-[10px] text-white placeholder-[#555555] outline-none focus:border-[#AB9FF2]/50 transition-colors"
+              style={{ boxShadow: 'rgba(255,255,255,0.03) 0px 1px 0px 0px inset' }}
             />
             {filters.search && (
               <button
@@ -133,13 +103,13 @@ export function StockScreener() {
           <div className="relative">
             <button
               onClick={() => setSectorOpen(!sectorOpen)}
-              className="w-full flex items-center justify-between px-2 py-0.5 text-[9px] bg-white/[0.04] border border-white/[0.06] rounded text-[#999999] hover:border-[#AB9FF2]/30 transition-colors"
+              className="w-full flex items-center justify-between px-2 py-0.5 text-[9px] bg-white/[0.03] border border-white/[0.08] rounded-md text-[#999999] hover:border-[#AB9FF2]/30 transition-colors"
             >
               <span>{filters.sector || 'All Sectors'}</span>
               <span className="text-[8px] ml-1">{sectorOpen ? '\u25B2' : '\u25BC'}</span>
             </button>
             {sectorOpen && (
-              <div className="absolute top-full left-0 right-0 mt-0.5 bg-[#1a1a1a] border border-white/[0.08] rounded shadow-lg z-20 max-h-40 overflow-y-auto">
+              <div className="absolute top-full left-0 right-0 mt-0.5 bg-[#131313] border border-white/[0.08] rounded-lg shadow-lg z-20 max-h-40 overflow-y-auto">
                 <button
                   onClick={() => { setFilter('sector', ''); setSectorOpen(false); }}
                   className={cn(
@@ -167,28 +137,22 @@ export function StockScreener() {
         </div>
 
         {/* Column headers */}
-        <div className="flex items-center px-2 py-1 border-b border-white/[0.04] bg-white/[0.02]">
-          {COLUMNS.map((col, i) => (
-            <React.Fragment key={col.key}>
-              <button
-                onClick={() => setSortField(col.key)}
-                className={cn(
-                  'text-[9px] uppercase tracking-wide transition-colors',
-                  col.key === 'symbol' ? 'flex-[2] text-left' : 'flex-1 text-right',
-                  sortField === col.key ? 'text-[#AB9FF2]' : 'text-[#666666] hover:text-[#999999]'
-                )}
-              >
-                {col.label}
-                {sortField === col.key && (
-                  <span className="ml-0.5 text-[7px]">{sortDirection === 'asc' ? '\u25B2' : '\u25BC'}</span>
-                )}
-              </button>
-              {i === 0 && (
-                <span className="flex-[0.8] text-left text-[9px] uppercase tracking-wide text-[#666666]">
-                  Sect
-                </span>
+        <div className="flex items-center px-2 py-1 border-b border-black bg-white/[0.02]">
+          {COLUMNS.map((col) => (
+            <button
+              key={col.key}
+              onClick={() => setSortField(col.key)}
+              className={cn(
+                'text-[9px] uppercase tracking-wide transition-colors',
+                col.key === 'symbol' ? 'flex-[2] text-left' : 'flex-1 text-right',
+                sortField === col.key ? 'text-[#AB9FF2]' : 'text-[#666666] hover:text-[#999999]'
               )}
-            </React.Fragment>
+            >
+              {col.label}
+              {sortField === col.key && (
+                <span className="ml-0.5 text-[7px]">{sortDirection === 'asc' ? '\u25B2' : '\u25BC'}</span>
+              )}
+            </button>
           ))}
         </div>
 
@@ -205,15 +169,11 @@ export function StockScreener() {
                 <button
                   key={ticker.symbol}
                   onClick={() => handleRowClick(ticker.symbol)}
-                  className="w-full flex items-center px-2 py-[5px] hover:bg-white/[0.04] transition-colors border-b border-white/[0.02] group"
+                  className="w-full flex items-center px-2 py-[6px] hover:bg-white/[0.04] transition-colors border-b border-white/[0.02] group"
                 >
                   {/* Symbol */}
                   <span className="flex-[2] text-left text-[10px] text-white font-medium group-hover:text-[#AB9FF2] transition-colors truncate">
                     {ticker.symbol}
-                  </span>
-                  {/* Sector */}
-                  <span className="flex-[0.8] text-left text-[9px] text-[#666666]">
-                    {SECTOR_ABBREV[tickerDefMap.get(ticker.symbol)?.sector ?? ''] ?? ''}
                   </span>
                   {/* Price */}
                   <span className="flex-1 text-right text-[10px] text-[#cccccc]">
@@ -223,22 +183,10 @@ export function StockScreener() {
                   <span
                     className={cn(
                       'flex-1 text-right text-[10px] font-medium',
-                      isPositive ? 'text-emerald-400' : 'text-red-400'
+                      isPositive ? 'text-[#2EC08B]' : 'text-[#FF7243]'
                     )}
                   >
                     {isPositive ? '+' : ''}{ticker.changePercent.toFixed(2)}%
-                  </span>
-                  {/* Volume */}
-                  <span className="flex-1 text-right text-[10px] text-[#888888]">
-                    {formatVolume(ticker.volume)}
-                  </span>
-                  {/* Market Cap */}
-                  <span className="flex-1 text-right text-[10px] text-[#888888]">
-                    {formatMarketCap(ticker.marketCap)}
-                  </span>
-                  {/* P/E */}
-                  <span className="flex-1 text-right text-[10px] text-[#888888]">
-                    {ticker.pe.toFixed(1)}
                   </span>
                 </button>
               );

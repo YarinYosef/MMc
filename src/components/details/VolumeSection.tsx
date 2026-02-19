@@ -44,7 +44,7 @@ export function VolumeSection({ symbol, expanded }: { symbol: string; expanded?:
       <div className="grid grid-cols-3 gap-2">
         <div className="text-center">
           <div className="text-[10px] text-[#999999]">Pre-Market</div>
-          <div className="text-[11px] font-mono text-amber-400">
+          <div className="text-[11px] font-mono text-[#CD8554]">
             {formatCurrency(volumeData.preMarketVolume).replace('$', '')}
           </div>
         </div>
@@ -64,7 +64,7 @@ export function VolumeSection({ symbol, expanded }: { symbol: string; expanded?:
 
       {/* vs Average */}
       <div className="text-center">
-        <span className={`text-[10px] font-mono ${volVsAvg >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+        <span className={`text-[10px] font-mono ${volVsAvg >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'}`}>
           {volVsAvg >= 0 ? '+' : ''}{volVsAvg.toFixed(1)}% vs 30d avg
         </span>
       </div>

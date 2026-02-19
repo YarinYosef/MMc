@@ -8,16 +8,16 @@ interface Props {
 }
 
 function breadthColor(val: number): string {
-  if (val > 65) return '#22C55E';
+  if (val > 65) return '#2EC08B';
   if (val > 50) return '#86EFAC';
   if (val > 35) return '#F59E0B';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 export function BreadthParticipation({ state, expanded }: Props) {
   const d = state.details;
   const status = d.status as string;
-  const color = status === 'Confirming' ? '#22C55E' : '#EF4444';
+  const color = status === 'Confirming' ? '#2EC08B' : '#FF7243';
 
   const aboveSMA20 = Number(d.aboveSMA20);
   const aboveSMA50 = Number(d.aboveSMA50);
@@ -96,22 +96,22 @@ export function BreadthParticipation({ state, expanded }: Props) {
         <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
           <div className="flex items-center justify-between">
             <span className="text-[10px] text-[#777777]">New Highs</span>
-            <span className="text-[11px] font-mono text-green-400">{newHighs}</span>
+            <span className="text-[11px] font-mono text-[#2EC08B]">{newHighs}</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-[10px] text-[#777777]">New Lows</span>
-            <span className="text-[11px] font-mono text-red-400">{newLows}</span>
+            <span className="text-[11px] font-mono text-[#FF7243]">{newLows}</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-[10px] text-[#777777]">A/D Ratio</span>
-            <span className="text-[11px] font-mono" style={{ color: adRatio > 1 ? '#22C55E' : '#EF4444' }}>
+            <span className="text-[11px] font-mono" style={{ color: adRatio > 1 ? '#2EC08B' : '#FF7243' }}>
               {adRatio.toFixed(2)}
             </span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-[10px] text-[#777777]">Weighting</span>
             <span className="text-[11px] font-bold" style={{
-              color: weighting === 'Healthy' ? '#22C55E' : weighting === 'Unhealthy' ? '#EF4444' : '#F59E0B'
+              color: weighting === 'Healthy' ? '#2EC08B' : weighting === 'Unhealthy' ? '#FF7243' : '#F59E0B'
             }}>
               {weighting}
             </span>
@@ -125,14 +125,14 @@ export function BreadthParticipation({ state, expanded }: Props) {
               className="h-full transition-all duration-500"
               style={{
                 width: `${newHighs + newLows > 0 ? (newHighs / (newHighs + newLows)) * 100 : 50}%`,
-                backgroundColor: '#22C55E80',
+                backgroundColor: '#2EC08B80',
               }}
             />
             <div
               className="h-full transition-all duration-500"
               style={{
                 width: `${newHighs + newLows > 0 ? (newLows / (newHighs + newLows)) * 100 : 50}%`,
-                backgroundColor: '#EF444480',
+                backgroundColor: '#FF724380',
               }}
             />
           </div>

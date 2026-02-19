@@ -8,10 +8,10 @@ interface Props {
 }
 
 function flowColor(val: number): string {
-  if (val > 500) return '#22C55E';
+  if (val > 500) return '#2EC08B';
   if (val > 0) return '#86EFAC';
   if (val > -500) return '#FCA5A5';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 export function ETFPassiveFlow({ state, expanded }: Props) {
@@ -21,7 +21,7 @@ export function ETFPassiveFlow({ state, expanded }: Props) {
   const spyFlow = Number(d.spyFlow);
   const qqqFlow = Number(d.qqqFlow);
 
-  const statusColor = flowStatus === 'Amplifying' ? '#22C55E' : flowStatus === 'Draining' ? '#EF4444' : '#9CA3AF';
+  const statusColor = flowStatus === 'Amplifying' ? '#2EC08B' : flowStatus === 'Draining' ? '#FF7243' : '#9CA3AF';
 
   if (!expanded) {
     return (

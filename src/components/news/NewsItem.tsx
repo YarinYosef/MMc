@@ -14,15 +14,15 @@ interface NewsItemProps {
 }
 
 const SENTIMENT_COLORS = {
-  positive: 'text-green-400',
+  positive: 'text-[#2EC08B]',
   neutral: 'text-[#999999]',
-  negative: 'text-red-400',
+  negative: 'text-[#FF7243]',
 };
 
 const SENTIMENT_DOT = {
-  positive: 'bg-green-400',
+  positive: 'bg-[#2EC08B]',
   neutral: 'bg-[#777777]',
-  negative: 'bg-red-400',
+  negative: 'bg-[#FF7243]',
 };
 
 export const NewsItemRow = memo(function NewsItemRow({ item, feedColor, isSelected, onSelect }: NewsItemProps) {

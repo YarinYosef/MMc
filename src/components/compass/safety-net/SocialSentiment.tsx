@@ -9,21 +9,21 @@ interface Props {
 
 function moodColor(mood: string): string {
   switch (mood) {
-    case 'Panic': return '#EF4444';
+    case 'Panic': return '#FF7243';
     case 'Afraid': return '#FCA5A5';
     case 'Neutral': return '#9CA3AF';
     case 'Greedy': return '#86EFAC';
-    case 'Euphoric': return '#22C55E';
+    case 'Euphoric': return '#2EC08B';
     default: return '#9CA3AF';
   }
 }
 
 function scoreColor(score: number): string {
-  if (score > 70) return '#22C55E';
+  if (score > 70) return '#2EC08B';
   if (score > 55) return '#86EFAC';
   if (score > 45) return '#9CA3AF';
   if (score > 30) return '#FCA5A5';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 export function SocialSentiment({ state, expanded }: Props) {
@@ -72,7 +72,7 @@ export function SocialSentiment({ state, expanded }: Props) {
             className="h-full rounded-full transition-all duration-500"
             style={{
               width: `${idx}%`,
-              background: 'linear-gradient(to right, #EF4444, #FCA5A5, #9CA3AF, #86EFAC, #22C55E)',
+              background: 'linear-gradient(to right, #FF7243, #FCA5A5, #9CA3AF, #86EFAC, #2EC08B)',
             }}
           />
         </div>

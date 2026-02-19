@@ -4,30 +4,27 @@ import { type ReactNode, useState, useCallback, useEffect, useMemo, useRef } fro
 import { cn } from '@/lib/utils';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useWatchlistStore } from '@/stores/useWatchlistStore';
-import { useNewsStore } from '@/stores/useNewsStore';
 import { LayoutManagerPanel } from './LayoutManagerPanel';
 import { RatingOverlay } from './RatingOverlay';
 import { WindowManager } from './WindowManager';
 import { NotificationToastBridge } from '@/components/watchlist/NotificationToastBridge';
+import { AssetInfoBar } from './AssetInfoBar';
+import { StockChatInput } from '@/components/chat/StockChatInput';
 
 interface DashboardLayoutProps {
-  compassBar: ReactNode;
   onionChart: ReactNode;
   moneyMaps: ReactNode;
   stockScreener: ReactNode;
   detailsPanel: ReactNode;
-  newsFeed: ReactNode;
   watchlistPanel: ReactNode;
   managingPanel: ReactNode;
 }
 
 export function DashboardLayout({
-  compassBar,
   onionChart,
   moneyMaps,
   stockScreener,
   detailsPanel,
-  newsFeed,
   watchlistPanel,
   managingPanel,
 }: DashboardLayoutProps) {
@@ -49,13 +46,11 @@ export function DashboardLayout({
     [currentLayout]
   );
 
-  const newsHeight = currentLayout?.newsHeightPercent ?? 8;
   const onionMoneyMapSplit = currentLayout?.onionMoneyMapSplit ?? 65;
 
   const watchlistOpen = useWatchlistStore((s) => s.isOpen);
   const watchlistDetached = useWatchlistStore((s) => s.isDetached);
   const toggleWatchlist = useWatchlistStore((s) => s.toggleOpen);
-  const newsDetached = useNewsStore((s) => s.isDetached);
   const managingOpen = useLayoutStore((s) => s.managingPane.isOpen);
 
   const loadLayouts = useLayoutStore((s) => s.loadLayouts);
@@ -64,14 +59,6 @@ export function DashboardLayout({
   useEffect(() => {
     loadLayouts();
   }, [loadLayouts]);
-
-  const [isResizingNews, setIsResizingNews] = useState(false);
-  const [currentNewsHeight, setCurrentNewsHeight] = useState(newsHeight);
-
-  // Sync local state when the store's newsHeight changes (e.g., layout switch)
-  useEffect(() => {
-    setCurrentNewsHeight(newsHeight);
-  }, [newsHeight]);
 
   // Onion / MoneyMap vertical split state
   const [isResizingSplit, setIsResizingSplit] = useState(false);
@@ -115,48 +102,13 @@ export function DashboardLayout({
     [currentSplit]
   );
 
-  const handleNewsResize = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      setIsResizingNews(true);
-
-      const startY = e.clientY;
-      const startHeight = currentNewsHeight;
-      const windowHeight = window.innerHeight;
-
-      const onMouseMove = (moveEvent: MouseEvent) => {
-        const deltaY = startY - moveEvent.clientY;
-        const deltaPercent = (deltaY / windowHeight) * 100;
-        const newHeight = Math.max(8, Math.min(15, startHeight + deltaPercent));
-        setCurrentNewsHeight(newHeight);
-      };
-
-      const onMouseUp = () => {
-        setIsResizingNews(false);
-        useNewsStore.getState().setHeightPercent(currentNewsHeight);
-        useLayoutStore.getState().updateLayoutSettings({ newsHeightPercent: currentNewsHeight });
-
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
-      };
-
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', onMouseUp);
-    },
-    [currentNewsHeight]
-  );
-
   return (
-    <div className="h-screen w-screen flex flex-col bg-black text-white overflow-hidden">
+    <div className="h-screen w-screen flex flex-col bg-black text-white overflow-hidden pb-[52px]">
       <WindowManager />
       <LayoutManagerPanel />
       <RatingOverlay />
       <NotificationToastBridge />
-
-      {/* Compass Bar */}
-      {isWidgetVisible('compass') && (
-        <div className="shrink-0 border-b border-black">{compassBar}</div>
-      )}
+      <StockChatInput />
 
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden relative min-w-0">
@@ -192,8 +144,10 @@ export function DashboardLayout({
 
         {/* Center + Right Layout */}
         <div className="flex-1 flex flex-col overflow-hidden min-w-0">
+          {/* Top Asset Info Bar */}
+          <AssetInfoBar />
           {/* Center Content */}
-          <div className="flex-1 flex gap-2 p-2 overflow-hidden min-w-0">
+          <div className="flex-1 flex gap-px p-0 overflow-hidden min-w-0">
             {/* Stock Screener (left column) */}
             {isWidgetVisible('screener') && (
               <div className="w-[22%] shrink-0 overflow-hidden min-w-0">{stockScreener}</div>
@@ -203,9 +157,9 @@ export function DashboardLayout({
             {(isWidgetVisible('onion') || isWidgetVisible('moneymap')) && (
               <div
                 ref={splitContainerRef}
-                className="w-[46%] shrink-0 flex flex-col overflow-hidden min-w-0"
+                className="w-[46%] shrink-0 flex flex-col gap-px overflow-hidden min-w-0"
               >
-                {/* Onion Chart (top) */}
+                {/* Chart (top) */}
                 {isWidgetVisible('onion') && (
                   <div
                     className="overflow-hidden min-h-0"
@@ -219,7 +173,7 @@ export function DashboardLayout({
                   </div>
                 )}
 
-                {/* Drag handle between onion and moneymap */}
+                {/* Drag handle between chart and moneymap */}
                 {isWidgetVisible('onion') && isWidgetVisible('moneymap') && (
                   <div
                     className={cn(
@@ -254,20 +208,6 @@ export function DashboardLayout({
             )}
           </div>
 
-          {/* News Feed (bottom, resizable) - hidden when detached to make space */}
-          {isWidgetVisible('news') && !newsDetached && (
-            <div className="shrink-0" style={{ height: `${currentNewsHeight}vh` }}>
-              {/* Resize handle */}
-              <div
-                className={cn(
-                  'h-1 cursor-row-resize hover:bg-[#AB9FF2]/50 transition-colors',
-                  isResizingNews ? 'bg-[#AB9FF2]/50' : 'bg-black'
-                )}
-                onMouseDown={handleNewsResize}
-              />
-              <div className="h-[calc(100%-4px)] overflow-hidden">{newsFeed}</div>
-            </div>
-          )}
         </div>
       </div>
 

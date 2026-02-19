@@ -202,8 +202,8 @@ export function InsiderSection({ symbol, expanded }: { symbol: string; expanded?
         cx={cx}
         cy={cy}
         r={radius}
-        fill="#22C55E"
-        stroke="#22C55E"
+        fill="#2EC08B"
+        stroke="#2EC08B"
         strokeWidth={2}
         style={{ cursor: 'pointer' }}
         onClick={(e) => {
@@ -227,8 +227,8 @@ export function InsiderSection({ symbol, expanded }: { symbol: string; expanded?
         cx={cx}
         cy={cy}
         r={radius}
-        fill="#EF4444"
-        stroke="#EF4444"
+        fill="#FF7243"
+        stroke="#FF7243"
         strokeWidth={2}
         style={{ cursor: 'pointer' }}
         onClick={(e) => {
@@ -271,11 +271,11 @@ export function InsiderSection({ symbol, expanded }: { symbol: string; expanded?
         <div className="grid grid-cols-2 gap-2">
           <div className="bg-white/[0.03] rounded p-1.5">
             <div className="text-[10px] text-[#999999]">Buys ({buyCount})</div>
-            <div className="text-[11px] font-mono text-green-400">{formatCurrency(totalBuys)}</div>
+            <div className="text-[11px] font-mono text-[#2EC08B]">{formatCurrency(totalBuys)}</div>
           </div>
           <div className="bg-white/[0.03] rounded p-1.5">
             <div className="text-[10px] text-[#999999]">Sells ({sellCount})</div>
-            <div className="text-[11px] font-mono text-red-400">{formatCurrency(totalSells)}</div>
+            <div className="text-[11px] font-mono text-[#FF7243]">{formatCurrency(totalSells)}</div>
           </div>
         </div>
 
@@ -338,7 +338,7 @@ export function InsiderSection({ symbol, expanded }: { symbol: string; expanded?
                   <td className="py-1 px-1.5 text-[#999999]">{trade.title}</td>
                   <td className="py-1 px-1.5 text-center">
                     <span className={`px-1.5 py-0.5 rounded text-[10px] font-semibold ${
-                      trade.type === 'buy' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'
+                      trade.type === 'buy' ? 'bg-[#2EC08B]/20 text-[#2EC08B]' : 'bg-[#FF7243]/20 text-[#FF7243]'
                     }`}>
                       {trade.type.toUpperCase()}
                     </span>
@@ -377,8 +377,8 @@ export function InsiderSection({ symbol, expanded }: { symbol: string; expanded?
           ))}
         </div>
         <div className="flex items-center gap-3 text-xs">
-          <span className="text-green-400 font-mono">Buys ({buyCount}): {formatCurrency(totalBuys)}</span>
-          <span className="text-red-400 font-mono">Sells ({sellCount}): {formatCurrency(totalSells)}</span>
+          <span className="text-[#2EC08B] font-mono">Buys ({buyCount}): {formatCurrency(totalBuys)}</span>
+          <span className="text-[#FF7243] font-mono">Sells ({sellCount}): {formatCurrency(totalSells)}</span>
         </div>
         {zoomDomain && (
           <button
@@ -461,7 +461,7 @@ export function InsiderSection({ symbol, expanded }: { symbol: string; expanded?
                   <td className="py-1.5 px-2 text-[#999999]">{trade.title}</td>
                   <td className="py-1.5 px-2 text-center">
                     <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${
-                      trade.type === 'buy' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'
+                      trade.type === 'buy' ? 'bg-[#2EC08B]/20 text-[#2EC08B]' : 'bg-[#FF7243]/20 text-[#FF7243]'
                     }`}>
                       {trade.type.toUpperCase()}
                     </span>

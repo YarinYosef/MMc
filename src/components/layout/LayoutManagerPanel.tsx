@@ -59,7 +59,8 @@ export function LayoutManagerPanel() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.15 }}
-          className="fixed top-12 left-4 z-50 w-72 bg-[#131313] border border-black rounded-lg shadow-xl max-h-[85vh] overflow-y-auto"
+          className="fixed top-12 left-4 z-50 w-72 bg-[#131313] border border-black rounded-lg max-h-[85vh] overflow-y-auto"
+          style={{ boxShadow: 'rgba(0,0,0,0.2) 0px 2px 4px 0px, rgba(255,255,255,0.06) 0px 1px 0px 0px inset, rgba(255,255,255,0.06) -1px 0px 0px 0px inset, rgba(255,255,255,0.06) 1px 0px 0px 0px inset, rgba(255,255,255,0.06) 0px -1px 0px 0px inset' }}
         >
           {/* Header */}
           <div className="flex items-center justify-between px-3 py-2 border-b border-black sticky top-0 bg-[#131313] z-10">
@@ -101,7 +102,7 @@ export function LayoutManagerPanel() {
                       e.stopPropagation();
                       deleteLayout(layout.id);
                     }}
-                    className="text-[#777777] hover:text-red-400 shrink-0 ml-2"
+                    className="text-[#777777] hover:text-[#FF7243] shrink-0 ml-2"
                   >
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                       <path d="M3 3L7 7M7 3L3 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -133,7 +134,7 @@ export function LayoutManagerPanel() {
                     <span
                       className={cn(
                         'w-2 h-2 rounded-full shrink-0',
-                        widget.visible ? 'bg-green-500' : 'bg-white/[0.08]'
+                        widget.visible ? 'bg-[#2EC08B]' : 'bg-white/[0.08]'
                       )}
                     />
                     <span className="capitalize truncate">{widget.type}</span>

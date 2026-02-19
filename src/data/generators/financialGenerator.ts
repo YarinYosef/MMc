@@ -142,22 +142,22 @@ export function generateSankeyData(statement: FinancialStatement): SankeyData {
   return {
     nodes: [
       { id: 'revenue', label: 'Revenue', value: rev, color: '#AB9FF2' },
-      { id: 'cogs', label: 'Cost of Revenue', value: cogs, color: '#EF4444' },
-      { id: 'gross-profit', label: 'Gross Profit', value: gp, color: '#22C55E' },
+      { id: 'cogs', label: 'Cost of Revenue', value: cogs, color: '#FF7243' },
+      { id: 'gross-profit', label: 'Gross Profit', value: gp, color: '#2EC08B' },
       { id: 'opex', label: 'Operating Expenses', value: opex, color: '#F59E0B' },
       { id: 'operating-income', label: 'Operating Income', value: oi, color: '#10B981' },
-      { id: 'tax', label: 'Tax', value: taxes, color: '#EF4444' },
+      { id: 'tax', label: 'Tax', value: taxes, color: '#FF7243' },
       { id: 'other-expenses', label: 'Other Expenses', value: otherExpenses, color: '#F97316' },
-      { id: 'net-income', label: 'Net Income', value: ni, color: '#22C55E' },
+      { id: 'net-income', label: 'Net Income', value: ni, color: '#2EC08B' },
     ],
     links: [
-      { source: 'revenue', target: 'cogs', value: cogs, color: '#EF444480' },
-      { source: 'revenue', target: 'gross-profit', value: gp, color: '#22C55E80' },
+      { source: 'revenue', target: 'cogs', value: cogs, color: '#FF724380' },
+      { source: 'revenue', target: 'gross-profit', value: gp, color: '#2EC08B80' },
       { source: 'gross-profit', target: 'opex', value: opex, color: '#F59E0B80' },
       { source: 'gross-profit', target: 'operating-income', value: Math.max(oi, 0), color: '#10B98180' },
-      { source: 'operating-income', target: 'tax', value: taxes, color: '#EF444480' },
+      { source: 'operating-income', target: 'tax', value: taxes, color: '#FF724380' },
       { source: 'operating-income', target: 'other-expenses', value: otherExpenses, color: '#F9731680' },
-      { source: 'operating-income', target: 'net-income', value: Math.max(ni, 0), color: '#22C55E80' },
+      { source: 'operating-income', target: 'net-income', value: Math.max(ni, 0), color: '#2EC08B80' },
     ].filter((l) => l.value > 0),
   };
 }

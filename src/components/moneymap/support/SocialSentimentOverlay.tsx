@@ -80,7 +80,7 @@ export function SocialSentimentOverlay() {
   }
 
   const sentimentLabel = summary.overall > 60 ? 'Bullish' : summary.overall < 40 ? 'Bearish' : 'Neutral';
-  const sentimentColor = summary.overall > 60 ? 'text-green-400' : summary.overall < 40 ? 'text-red-400' : 'text-[#999999]';
+  const sentimentColor = summary.overall > 60 ? 'text-[#2EC08B]' : summary.overall < 40 ? 'text-[#FF7243]' : 'text-[#999999]';
 
   return (
     <div className="h-full flex flex-col">
@@ -143,7 +143,7 @@ export function SocialSentimentOverlay() {
           </div>
         ))}
         <div className="flex-1" />
-        <span className={`text-[10px] ${summary.trend === 'improving' ? 'text-green-400' : summary.trend === 'declining' ? 'text-red-400' : 'text-[#999999]'}`}>
+        <span className={`text-[10px] ${summary.trend === 'improving' ? 'text-[#2EC08B]' : summary.trend === 'declining' ? 'text-[#FF7243]' : 'text-[#999999]'}`}>
           Trend: {summary.trend}
         </span>
       </div>

@@ -11,7 +11,7 @@ interface Props {
 export function GammaCompass({ state, expanded }: Props) {
   const d = state.details;
   const isPositive = d.isPositive === 'Positive';
-  const color = isPositive ? '#22C55E' : '#EF4444';
+  const color = isPositive ? '#2EC08B' : '#FF7243';
   const gex = Number(d.gex);
   const selectedSegment = useOnionStore((s) => s.selectedSegment);
   const onionLabel = selectedSegment || 'Current Asset';
@@ -57,7 +57,7 @@ export function GammaCompass({ state, expanded }: Props) {
       {/* Index breakdown with bidirectional bars */}
       <div className="space-y-2">
         {indices.map(({ label, value, isOnion }) => {
-          const c = value > 0 ? '#22C55E' : '#EF4444';
+          const c = value > 0 ? '#2EC08B' : '#FF7243';
           const barWidth = (Math.abs(value) / maxAbsGex) * 50;
           return (
             <div key={label}>

@@ -18,10 +18,10 @@ const SECTOR_NAMES: Record<string, string> = {
 };
 
 function heatColor(temp: number): string {
-  if (temp > 80) return '#EF4444';
+  if (temp > 80) return '#FF7243';
   if (temp > 60) return '#F97316';
   if (temp > 40) return '#F59E0B';
-  return '#22C55E';
+  return '#2EC08B';
 }
 
 export function SectorOverheat({ state, expanded }: Props) {
@@ -30,7 +30,7 @@ export function SectorOverheat({ state, expanded }: Props) {
   const avgTemp = Number(d.avgTemp);
   const selectedSegment = useOnionStore((s) => s.selectedSegment);
 
-  const color = avgStatus === 'Extended' ? '#EF4444' : '#22C55E';
+  const color = avgStatus === 'Extended' ? '#FF7243' : '#2EC08B';
 
   if (!expanded) {
     return (
@@ -106,10 +106,10 @@ export function SectorOverheat({ state, expanded }: Props) {
                   style={{
                     width: `${temp}%`,
                     background: temp > 70
-                      ? 'linear-gradient(to right, #F59E0B, #EF4444)'
+                      ? 'linear-gradient(to right, #F59E0B, #FF7243)'
                       : temp > 40
-                      ? 'linear-gradient(to right, #22C55E, #F59E0B)'
-                      : '#22C55E',
+                      ? 'linear-gradient(to right, #2EC08B, #F59E0B)'
+                      : '#2EC08B',
                   }}
                 />
               </div>

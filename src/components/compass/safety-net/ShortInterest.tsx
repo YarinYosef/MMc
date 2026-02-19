@@ -9,9 +9,9 @@ interface Props {
 }
 
 function levelColor(level: string): string {
-  if (level === 'Low') return '#22C55E';
+  if (level === 'Low') return '#2EC08B';
   if (level === 'Moderate') return '#F59E0B';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 export function ShortInterest({ state, expanded }: Props) {
@@ -48,9 +48,9 @@ export function ShortInterest({ state, expanded }: Props) {
 
       {/* Market-wide SI metrics */}
       <div className="space-y-2 mb-3">
-        <MetricRow label="SI Ratio" value={`${siRatio.toFixed(2)}%`} barValue={siRatio / 30 * 100} barColor={siRatio > 15 ? '#EF4444' : siRatio > 5 ? '#F59E0B' : '#22C55E'} />
-        <MetricRow label="Days to Cover" value={dtc.toFixed(1)} barValue={dtc / 15 * 100} barColor={dtc > 8 ? '#EF4444' : dtc > 3 ? '#F59E0B' : '#22C55E'} />
-        <MetricRow label="Cost to Borrow" value={`${ctb.toFixed(2)}%`} barValue={ctb / 50 * 100} barColor={ctb > 20 ? '#EF4444' : ctb > 5 ? '#F59E0B' : '#22C55E'} />
+        <MetricRow label="SI Ratio" value={`${siRatio.toFixed(2)}%`} barValue={siRatio / 30 * 100} barColor={siRatio > 15 ? '#FF7243' : siRatio > 5 ? '#F59E0B' : '#2EC08B'} />
+        <MetricRow label="Days to Cover" value={dtc.toFixed(1)} barValue={dtc / 15 * 100} barColor={dtc > 8 ? '#FF7243' : dtc > 3 ? '#F59E0B' : '#2EC08B'} />
+        <MetricRow label="Cost to Borrow" value={`${ctb.toFixed(2)}%`} barValue={ctb / 50 * 100} barColor={ctb > 20 ? '#FF7243' : ctb > 5 ? '#F59E0B' : '#2EC08B'} />
         <div>
           <div className="flex justify-between text-[11px] mb-0.5">
             <span className="text-[#777777]">Utilization</span>
@@ -62,10 +62,10 @@ export function ShortInterest({ state, expanded }: Props) {
               style={{
                 width: `${util}%`,
                 background: util > 70
-                  ? 'linear-gradient(to right, #F59E0B, #EF4444)'
+                  ? 'linear-gradient(to right, #F59E0B, #FF7243)'
                   : util > 40
-                  ? 'linear-gradient(to right, #22C55E, #F59E0B)'
-                  : '#22C55E',
+                  ? 'linear-gradient(to right, #2EC08B, #F59E0B)'
+                  : '#2EC08B',
               }}
             />
           </div>
@@ -77,7 +77,7 @@ export function ShortInterest({ state, expanded }: Props) {
         <div className="flex items-center justify-between mb-1">
           <span className="text-[11px] text-[#AB9FF2] font-semibold">{onionLabel} SI</span>
           <span className="text-[11px] font-mono font-bold" style={{
-            color: onionSI > 15 ? '#EF4444' : onionSI > 5 ? '#F59E0B' : '#22C55E'
+            color: onionSI > 15 ? '#FF7243' : onionSI > 5 ? '#F59E0B' : '#2EC08B'
           }}>
             {onionSI.toFixed(2)}%
           </span>
@@ -87,7 +87,7 @@ export function ShortInterest({ state, expanded }: Props) {
             className="h-full rounded-full transition-all duration-500"
             style={{
               width: `${Math.min(onionSI * 3, 100)}%`,
-              backgroundColor: onionSI > 15 ? '#EF4444' : onionSI > 5 ? '#F59E0B' : '#22C55E',
+              backgroundColor: onionSI > 15 ? '#FF7243' : onionSI > 5 ? '#F59E0B' : '#2EC08B',
             }}
           />
         </div>

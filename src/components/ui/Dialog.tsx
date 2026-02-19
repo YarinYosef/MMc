@@ -35,7 +35,7 @@ export const DialogContent = forwardRef<
       ref={ref}
       className={cn(
         'fixed left-1/2 top-1/2 z-[60] -translate-x-1/2 -translate-y-1/2',
-        'w-full max-w-lg rounded-xl border border-black p-6 shadow-xl backdrop-blur-md',
+        'w-full max-w-lg rounded-xl border border-black p-6 backdrop-blur-md',
         'bg-[linear-gradient(135deg,rgba(45,45,62,0.85),rgba(30,30,42,0.85))]',
         'data-[state=open]:animate-in data-[state=closed]:animate-out',
         'data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0',

@@ -23,7 +23,14 @@
       "Bash(git clone:*)",
       "Bash(CLAUDECODE= claude mcp add webmcp-bridge webmcp-bridge)",
       "Bash(CLAUDECODE= claude mcp list:*)",
-      "mcp__webmcp__extension_tool_window_operations"
+      "mcp__webmcp__extension_tool_window_operations",
+      "Bash(npx next build)",
+      "Bash(npx tsc:*)",
+      "WebFetch(domain:web-to-mcp.com)",
+      "mcp__web-to-mcp__get_html_for_reference",
+      "mcp__web-to-mcp__get_screenshot_for_reference",
+      "Bash(npm test:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }

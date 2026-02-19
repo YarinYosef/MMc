@@ -36,7 +36,7 @@ export function WatchlistItemRow({ item, groupId, groupColor, ticker, isDragging
     setShowNotes(false);
   };
 
-  const changeColor = ticker && ticker.change >= 0 ? 'text-green-400' : 'text-red-400';
+  const changeColor = ticker && ticker.change >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]';
 
   return (
     <div className={cn(isDragging && 'opacity-50')}>
@@ -137,7 +137,7 @@ export function WatchlistItemRow({ item, groupId, groupColor, ticker, isDragging
           className={cn(
             'shrink-0 p-0.5 rounded transition-colors',
             item.subscribedToNews
-              ? 'text-yellow-400 hover:text-yellow-300'
+              ? 'text-[#CD8554] hover:text-[#CD8554]'
               : 'text-[#777777] hover:text-[#999999]'
           )}
           title={item.subscribedToNews ? 'Unsubscribe from news' : 'Subscribe to news'}
@@ -160,7 +160,7 @@ export function WatchlistItemRow({ item, groupId, groupColor, ticker, isDragging
             e.stopPropagation();
             removeItem(groupId, item.symbol);
           }}
-          className="shrink-0 p-0.5 text-[#777777] hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
+          className="shrink-0 p-0.5 text-[#777777] hover:text-[#FF7243] opacity-0 group-hover:opacity-100 transition-all"
           title="Remove"
         >
           <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">

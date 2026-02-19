@@ -67,8 +67,8 @@ export function InsiderBuybackFlow() {
         cx={cx}
         cy={cy}
         r={isHighlighted ? 7 : 5}
-        fill="#22C55E"
-        stroke={isHighlighted ? '#fff' : '#22C55E'}
+        fill="#2EC08B"
+        stroke={isHighlighted ? '#fff' : '#2EC08B'}
         strokeWidth={isHighlighted ? 2 : 2}
         style={{ cursor: 'pointer', transition: 'r 0.15s' }}
         onClick={(e) => {
@@ -92,8 +92,8 @@ export function InsiderBuybackFlow() {
         cx={cx}
         cy={cy}
         r={isHighlighted ? 7 : 5}
-        fill="#EF4444"
-        stroke={isHighlighted ? '#fff' : '#EF4444'}
+        fill="#FF7243"
+        stroke={isHighlighted ? '#fff' : '#FF7243'}
         strokeWidth={isHighlighted ? 2 : 2}
         style={{ cursor: 'pointer', transition: 'r 0.15s' }}
         onClick={(e) => {
@@ -203,8 +203,8 @@ export function InsiderBuybackFlow() {
                 <td className="py-1 px-1.5 text-center">
                   <span className={`px-1.5 py-0.5 rounded text-[10px] font-semibold ${
                     trade.type === 'buy'
-                      ? 'bg-green-500/20 text-green-400'
-                      : 'bg-red-500/20 text-red-400'
+                      ? 'bg-[#2EC08B]/20 text-[#2EC08B]'
+                      : 'bg-[#FF7243]/20 text-[#FF7243]'
                   }`}>
                     {trade.type.toUpperCase()}
                   </span>

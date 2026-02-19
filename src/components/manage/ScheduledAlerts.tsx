@@ -161,7 +161,7 @@ export function ScheduledAlerts() {
             key={alert.id}
             className={`flex items-center gap-2 px-2 py-1.5 rounded ${
               alert.triggeredAt
-                ? 'bg-amber-500/10 border border-amber-500/20'
+                ? 'bg-[#CD8554]/10 border border-[#CD8554]/20'
                 : alert.isActive
                 ? 'bg-white/[0.03]'
                 : 'bg-white/[0.02] opacity-50'
@@ -171,7 +171,7 @@ export function ScheduledAlerts() {
               onClick={() => toggleAlert(alert.id)}
               className={`w-3 h-3 rounded-full flex-shrink-0 border ${
                 alert.isActive
-                  ? 'bg-green-500 border-green-500'
+                  ? 'bg-[#2EC08B] border-[#2EC08B]'
                   : 'border-[#777777]'
               }`}
             />
@@ -184,14 +184,14 @@ export function ScheduledAlerts() {
                 <span className="text-[10px] text-[#AB9FF2] font-medium">{alert.value}</span>
               </div>
               {alert.triggeredAt && (
-                <span className="text-[10px] text-amber-400">
+                <span className="text-[10px] text-[#CD8554]">
                   Triggered {new Date(alert.triggeredAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
                 </span>
               )}
             </div>
             <button
               onClick={() => deleteAlert(alert.id)}
-              className="text-[10px] text-[#777777] hover:text-red-400 flex-shrink-0"
+              className="text-[10px] text-[#777777] hover:text-[#FF7243] flex-shrink-0"
             >
               x
             </button>

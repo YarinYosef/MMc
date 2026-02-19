@@ -36,7 +36,7 @@ export function OnionTooltip({ x, y, label, value, changePercent, extra, visible
       </div>
       <div className="flex items-center gap-2">
         <span className="text-[10px] text-[#999999]">Change:</span>
-        <span className={`text-[10px] font-medium ${isPositive ? 'text-green-400' : 'text-red-400'}`}>
+        <span className={`text-[10px] font-medium ${isPositive ? 'text-[#2EC08B]' : 'text-[#FF7243]'}`}>
           {formatPercent(changePercent)}
         </span>
       </div>
@@ -49,7 +49,7 @@ export function OnionTooltip({ x, y, label, value, changePercent, extra, visible
             </div>
             <div className="flex items-center justify-between">
               <span className="text-[10px] text-[#999999]">Daily:</span>
-              <span className={`text-[10px] ${extra.change >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+              <span className={`text-[10px] ${extra.change >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'}`}>
                 {formatPercent(extra.changePercent)}
               </span>
             </div>

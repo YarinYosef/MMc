@@ -10,7 +10,7 @@ interface NewsTooltipProps {
 
 export function NewsTooltip({ item, feedColor }: NewsTooltipProps) {
   const impactLabel = item.impact >= 70 ? 'High' : item.impact >= 40 ? 'Medium' : 'Low';
-  const impactColor = item.impact >= 70 ? 'text-red-400' : item.impact >= 40 ? 'text-yellow-400' : 'text-[#999999]';
+  const impactColor = item.impact >= 70 ? 'text-[#FF7243]' : item.impact >= 40 ? 'text-[#CD8554]' : 'text-[#999999]';
 
   return (
     <div className="max-w-xs p-3 space-y-2 text-xs">
@@ -39,9 +39,9 @@ export function NewsTooltip({ item, feedColor }: NewsTooltipProps) {
         <span
           className={
             item.sentiment === 'positive'
-              ? 'text-green-400'
+              ? 'text-[#2EC08B]'
               : item.sentiment === 'negative'
-                ? 'text-red-400'
+                ? 'text-[#FF7243]'
                 : 'text-[#999999]'
           }
         >

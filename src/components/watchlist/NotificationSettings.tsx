@@ -117,12 +117,12 @@ export function NotificationSettings({ onClose }: NotificationSettingsProps) {
               className={cn(
                 'w-full bg-white/[0.06] border rounded px-2 py-1 text-[11px] text-white placeholder:text-[#777777] focus:outline-none focus:ring-1',
                 emailError
-                  ? 'border-red-500 focus:ring-red-500'
+                  ? 'border-[#FF7243] focus:ring-[#FF7243]'
                   : 'border-black focus:ring-[#AB9FF2]'
               )}
             />
             {emailError && (
-              <span className="text-[9px] text-red-400">{emailError}</span>
+              <span className="text-[9px] text-[#FF7243]">{emailError}</span>
             )}
           </div>
 
@@ -141,12 +141,12 @@ export function NotificationSettings({ onClose }: NotificationSettingsProps) {
               className={cn(
                 'w-full bg-white/[0.06] border rounded px-2 py-1 text-[11px] text-white placeholder:text-[#777777] focus:outline-none focus:ring-1',
                 phoneError
-                  ? 'border-red-500 focus:ring-red-500'
+                  ? 'border-[#FF7243] focus:ring-[#FF7243]'
                   : 'border-black focus:ring-[#AB9FF2]'
               )}
             />
             {phoneError && (
-              <span className="text-[9px] text-red-400">{phoneError}</span>
+              <span className="text-[9px] text-[#FF7243]">{phoneError}</span>
             )}
           </div>
 
@@ -247,7 +247,7 @@ export function NotificationSettings({ onClose }: NotificationSettingsProps) {
         {/* Save button */}
         <div className="flex items-center justify-end gap-2 pt-1">
           {saved && (
-            <span className="text-[10px] text-green-400">Saved!</span>
+            <span className="text-[10px] text-[#2EC08B]">Saved!</span>
           )}
           <button
             onClick={handleSave}

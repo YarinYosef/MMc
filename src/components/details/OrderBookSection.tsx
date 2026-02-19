@@ -38,7 +38,7 @@ export function OrderBookSection({ symbol, expanded }: { symbol: string; expande
           <div className="text-[10px] text-[#777777]">Imbalance</div>
           <div className={cn(
             'text-[11px] font-mono',
-            imbalance > 0 ? 'text-green-400' : 'text-red-400'
+            imbalance > 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'
           )}>
             {imbalance > 0 ? '+' : ''}{imbalance.toFixed(1)}%
           </div>
@@ -48,17 +48,17 @@ export function OrderBookSection({ symbol, expanded }: { symbol: string; expande
       {/* Buy/Sell pressure bar */}
       <div>
         <div className="flex items-center justify-between text-[10px] mb-0.5">
-          <span className="text-green-400">Buy {bidPercent.toFixed(1)}%</span>
-          <span className="text-red-400">{(100 - bidPercent).toFixed(1)}% Sell</span>
+          <span className="text-[#2EC08B]">Buy {bidPercent.toFixed(1)}%</span>
+          <span className="text-[#FF7243]">{(100 - bidPercent).toFixed(1)}% Sell</span>
         </div>
         <div className="h-2 flex rounded overflow-hidden">
           <div
             className="h-full transition-all duration-300"
-            style={{ width: `${bidPercent}%`, backgroundColor: '#22C55E' }}
+            style={{ width: `${bidPercent}%`, backgroundColor: '#2EC08B' }}
           />
           <div
             className="h-full transition-all duration-300"
-            style={{ width: `${100 - bidPercent}%`, backgroundColor: '#EF4444' }}
+            style={{ width: `${100 - bidPercent}%`, backgroundColor: '#FF7243' }}
           />
         </div>
       </div>
@@ -67,13 +67,13 @@ export function OrderBookSection({ symbol, expanded }: { symbol: string; expande
       <div className="grid grid-cols-2 gap-2">
         <div className="text-center">
           <div className="text-[10px] text-[#777777]">Total Bid Vol</div>
-          <div className="text-[11px] font-mono text-green-400">
+          <div className="text-[11px] font-mono text-[#2EC08B]">
             {totalBidVolume.toLocaleString()}
           </div>
         </div>
         <div className="text-center">
           <div className="text-[10px] text-[#777777]">Total Ask Vol</div>
-          <div className="text-[11px] font-mono text-red-400">
+          <div className="text-[11px] font-mono text-[#FF7243]">
             {totalAskVolume.toLocaleString()}
           </div>
         </div>

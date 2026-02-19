@@ -53,7 +53,7 @@ export function CrossAssetRotation() {
             <ReferenceLine x={0} stroke="#475569" />
             <Bar dataKey="flow" radius={[0, 4, 4, 0]} barSize={14}>
               {data.map((entry, i) => (
-                <Cell key={i} fill={entry.flow >= 0 ? '#22C55E' : '#EF4444'} opacity={0.8} />
+                <Cell key={i} fill={entry.flow >= 0 ? '#2EC08B' : '#FF7243'} opacity={0.8} />
               ))}
             </Bar>
           </BarChart>
@@ -64,7 +64,7 @@ export function CrossAssetRotation() {
           <div key={d.etf} className="flex items-center gap-1">
             <div className="w-2 h-2 rounded-full" style={{ backgroundColor: d.color }} />
             <span className="text-[10px] text-[#999999]">{d.etf}</span>
-            <span className={`text-[10px] ${d.momentum >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+            <span className={`text-[10px] ${d.momentum >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'}`}>
               {d.momentum >= 0 ? '+' : ''}{d.momentum.toFixed(1)}%
             </span>
           </div>

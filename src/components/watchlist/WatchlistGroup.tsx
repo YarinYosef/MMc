@@ -247,7 +247,7 @@ export function WatchlistGroupSection({ group, isActive, dragListeners }: Watchl
           className={cn(
             'p-0.5 transition-colors shrink-0',
             groupPrefs?.email || groupPrefs?.phone
-              ? 'text-yellow-400 hover:text-yellow-300'
+              ? 'text-[#CD8554] hover:text-[#CD8554]'
               : 'text-[#777777] hover:text-[#999999] opacity-0 group-hover:opacity-100'
           )}
           title="Notification settings"
@@ -278,7 +278,7 @@ export function WatchlistGroupSection({ group, isActive, dragListeners }: Watchl
             e.stopPropagation();
             deleteGroup(group.id);
           }}
-          className="p-0.5 text-[#777777] hover:text-red-400 transition-colors shrink-0"
+          className="p-0.5 text-[#777777] hover:text-[#FF7243] transition-colors shrink-0"
           title="Delete watchlist"
         >
           <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">

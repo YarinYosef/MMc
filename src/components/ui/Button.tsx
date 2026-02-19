@@ -14,7 +14,7 @@ const VARIANTS = {
   default: 'bg-[#AB9FF2] text-[#222222] hover:brightness-110',
   ghost: 'hover:bg-white/[0.06] text-[#999999] hover:text-[#AB9FF2]',
   outline: 'border border-black text-[#999999] hover:bg-white/[0.06]',
-  destructive: 'bg-red-600 text-white hover:bg-red-700',
+  destructive: 'bg-[#FF7243] text-white hover:bg-[#FF7243]/90',
 };
 
 const SIZES = {

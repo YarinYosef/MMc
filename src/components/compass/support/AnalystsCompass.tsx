@@ -8,7 +8,7 @@ interface Props {
 }
 
 function speedColor(speed: string): string {
-  if (speed === 'Fast') return '#22C55E';
+  if (speed === 'Fast') return '#2EC08B';
   if (speed === 'Moderate') return '#F59E0B';
   return '#9CA3AF';
 }
@@ -20,7 +20,7 @@ export function AnalystsCompass({ state, expanded }: Props) {
   const coverage = Number(d.coverage);
   const dispersion = Number(d.dispersion);
 
-  const dirColor = direction === 'Up' ? '#22C55E' : direction === 'Down' ? '#EF4444' : '#9CA3AF';
+  const dirColor = direction === 'Up' ? '#2EC08B' : direction === 'Down' ? '#FF7243' : '#9CA3AF';
   const spdColor = speedColor(speed);
 
   if (!expanded) {
@@ -88,7 +88,7 @@ export function AnalystsCompass({ state, expanded }: Props) {
               className="h-full rounded-full transition-all duration-500"
               style={{
                 width: `${Math.min(coverage / 50 * 100, 100)}%`,
-                backgroundColor: coverage > 20 ? '#22C55E' : coverage > 10 ? '#F59E0B' : '#EF4444',
+                backgroundColor: coverage > 20 ? '#2EC08B' : coverage > 10 ? '#F59E0B' : '#FF7243',
               }}
             />
           </div>
@@ -97,7 +97,7 @@ export function AnalystsCompass({ state, expanded }: Props) {
           <div className="flex justify-between text-[11px] mb-0.5">
             <span className="text-[#999999]">Dispersion</span>
             <span className="font-mono" style={{
-              color: dispersion > 50 ? '#EF4444' : dispersion > 30 ? '#F59E0B' : '#22C55E'
+              color: dispersion > 50 ? '#FF7243' : dispersion > 30 ? '#F59E0B' : '#2EC08B'
             }}>
               {dispersion}%
             </span>
@@ -107,7 +107,7 @@ export function AnalystsCompass({ state, expanded }: Props) {
               className="h-full rounded-full transition-all duration-500"
               style={{
                 width: `${dispersion}%`,
-                backgroundColor: dispersion > 50 ? '#EF4444' : dispersion > 30 ? '#F59E0B' : '#22C55E',
+                backgroundColor: dispersion > 50 ? '#FF7243' : dispersion > 30 ? '#F59E0B' : '#2EC08B',
               }}
             />
           </div>

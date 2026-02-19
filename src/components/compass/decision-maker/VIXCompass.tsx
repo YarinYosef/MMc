@@ -8,10 +8,10 @@ interface Props {
 }
 
 function stressColor(score: number): string {
-  if (score < 25) return '#22C55E';
+  if (score < 25) return '#2EC08B';
   if (score < 50) return '#F59E0B';
   if (score < 75) return '#F97316';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 function stressLabel(score: number): string {
@@ -184,8 +184,8 @@ export function VIXCompass({ state, expanded }: Props) {
           <span
             className="text-[10px] font-bold px-2 py-0.5 rounded-full"
             style={{
-              color: d.termStructure === 'Contango' ? '#22C55E' : '#EF4444',
-              backgroundColor: d.termStructure === 'Contango' ? '#22C55E15' : '#EF444415',
+              color: d.termStructure === 'Contango' ? '#2EC08B' : '#FF7243',
+              backgroundColor: d.termStructure === 'Contango' ? '#2EC08B15' : '#FF724315',
             }}
           >
             {d.termStructure}
@@ -222,8 +222,8 @@ function DimensionRow({
 }) {
   const ratio = Math.min(Math.max((value - min) / (max - min), 0), 1);
   const c = stressColor(ratio * 100);
-  const statusColor = status === 'Low' ? '#22C55E' : status === 'Normal' ? '#F59E0B' : status === 'Elevated' ? '#F97316' : '#EF4444';
-  const momColor = momentum > 0 ? '#EF4444' : '#22C55E';
+  const statusColor = status === 'Low' ? '#2EC08B' : status === 'Normal' ? '#F59E0B' : status === 'Elevated' ? '#F97316' : '#FF7243';
+  const momColor = momentum > 0 ? '#FF7243' : '#2EC08B';
 
   return (
     <div>

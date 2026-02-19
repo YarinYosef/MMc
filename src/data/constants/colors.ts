@@ -16,23 +16,23 @@ export const WATCHLIST_COLORS = [
 export const NEWS_FEED_COLORS = {
   global: '#AB9FF2',    // phantom purple
   trend: '#F59E0B',     // amber
-  'looking-at': '#10B981', // green
+  'looking-at': '#2EC08B', // teal green
   watchlist: '#EC4899',  // pink
 } as const;
 
-// Signal colors for compass readings
+// Signal colors for compass readings — Phantom Trade palette
 export const SIGNAL_COLORS: Record<string, string> = {
-  'strong-bullish': '#22C55E',
+  'strong-bullish': '#2EC08B',
   'bullish': '#86EFAC',
   'neutral': '#9CA3AF',
   'bearish': '#FCA5A5',
-  'strong-bearish': '#EF4444',
+  'strong-bearish': '#FF7243',
 };
 
-// Chart theme colors – Phantom Trade design tokens
+// Chart theme colors — Phantom Trade design tokens
 export const CHART_COLORS = {
-  positive: '#22C55E',
-  negative: '#EF4444',
+  positive: '#2EC08B',
+  negative: '#FF7243',
   neutral: '#6B7280',
   accent: '#AB9FF2',
   background: '#131313',

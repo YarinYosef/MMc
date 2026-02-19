@@ -8,11 +8,11 @@ interface Props {
 }
 
 function indexColor(index: number): string {
-  if (index < 25) return '#EF4444';
+  if (index < 25) return '#FF7243';
   if (index < 40) return '#FCA5A5';
   if (index < 60) return '#F59E0B';
   if (index < 75) return '#86EFAC';
-  return '#22C55E';
+  return '#2EC08B';
 }
 
 function indexLabel(index: number): string {
@@ -67,10 +67,10 @@ export function FearGreed({ state, expanded }: Props) {
               strokeLinecap="round"
             />
             {/* Gradient arc segments */}
-            <path d="M 10 70 A 60 60 0 0 1 34 26" fill="none" stroke="#EF4444" strokeWidth="10" strokeLinecap="round" />
+            <path d="M 10 70 A 60 60 0 0 1 34 26" fill="none" stroke="#FF7243" strokeWidth="10" strokeLinecap="round" />
             <path d="M 34 26 A 60 60 0 0 1 70 10" fill="none" stroke="#F59E0B" strokeWidth="10" />
             <path d="M 70 10 A 60 60 0 0 1 106 26" fill="none" stroke="#86EFAC" strokeWidth="10" />
-            <path d="M 106 26 A 60 60 0 0 1 130 70" fill="none" stroke="#22C55E" strokeWidth="10" strokeLinecap="round" />
+            <path d="M 106 26 A 60 60 0 0 1 130 70" fill="none" stroke="#2EC08B" strokeWidth="10" strokeLinecap="round" />
             {/* Needle */}
             {(() => {
               const angle = Math.PI - (index / 100) * Math.PI;
@@ -101,14 +101,14 @@ export function FearGreed({ state, expanded }: Props) {
           <div className="text-center">
             <div className="text-[9px] text-[#777777]">Previous</div>
             <div className="font-mono" style={{ color: indexColor(previous) }}>{previous}</div>
-            <div className="text-[9px] font-mono" style={{ color: change > 0 ? '#22C55E' : change < 0 ? '#EF4444' : '#9CA3AF' }}>
+            <div className="text-[9px] font-mono" style={{ color: change > 0 ? '#2EC08B' : change < 0 ? '#FF7243' : '#9CA3AF' }}>
               {change > 0 ? '+' : ''}{change}
             </div>
           </div>
           <div className="text-center">
             <div className="text-[9px] text-[#777777]">Week Ago</div>
             <div className="font-mono" style={{ color: indexColor(weekAgo) }}>{weekAgo}</div>
-            <div className="text-[9px] font-mono" style={{ color: index - weekAgo > 0 ? '#22C55E' : index - weekAgo < 0 ? '#EF4444' : '#9CA3AF' }}>
+            <div className="text-[9px] font-mono" style={{ color: index - weekAgo > 0 ? '#2EC08B' : index - weekAgo < 0 ? '#FF7243' : '#9CA3AF' }}>
               {index - weekAgo > 0 ? '+' : ''}{index - weekAgo}
             </div>
           </div>

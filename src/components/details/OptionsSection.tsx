@@ -54,7 +54,7 @@ export function OptionsSection({ symbol, expanded }: { symbol: string; expanded?
           <span className="text-[10px] text-[#999999]">Put/Call Ratio</span>
           <span className={cn(
             'text-[12px] font-mono font-bold',
-            data.putCallRatio > 1 ? 'text-red-400' : 'text-green-400'
+            data.putCallRatio > 1 ? 'text-[#FF7243]' : 'text-[#2EC08B]'
           )}>
             {data.putCallRatio.toFixed(2)}
           </span>
@@ -69,9 +69,9 @@ export function OptionsSection({ symbol, expanded }: { symbol: string; expanded?
         {/* Volume Split Bar */}
         <div className="mb-2">
           <div className="flex items-center justify-between text-[10px] mb-0.5">
-            <span className="text-green-400">Calls {callPercent.toFixed(1)}%</span>
+            <span className="text-[#2EC08B]">Calls {callPercent.toFixed(1)}%</span>
             <span className="text-[#999999]">Volume Split</span>
-            <span className="text-red-400">{putPercent.toFixed(1)}% Puts</span>
+            <span className="text-[#FF7243]">{putPercent.toFixed(1)}% Puts</span>
           </div>
           <div className="h-3 flex rounded overflow-hidden">
             <div
@@ -88,18 +88,18 @@ export function OptionsSection({ symbol, expanded }: { symbol: string; expanded?
         {/* OI Split Bar */}
         <div className="mb-2">
           <div className="flex items-center justify-between text-[10px] mb-0.5">
-            <span className="text-green-400">Calls {callOIPercent.toFixed(1)}%</span>
+            <span className="text-[#2EC08B]">Calls {callOIPercent.toFixed(1)}%</span>
             <span className="text-[#999999]">Open Interest</span>
-            <span className="text-red-400">{putOIPercent.toFixed(1)}% Puts</span>
+            <span className="text-[#FF7243]">{putOIPercent.toFixed(1)}% Puts</span>
           </div>
           <div className="h-3 flex rounded overflow-hidden">
             <div
               className="h-full transition-all duration-300"
-              style={{ width: `${callOIPercent}%`, backgroundColor: '#22C55E80' }}
+              style={{ width: `${callOIPercent}%`, backgroundColor: '#2EC08B80' }}
             />
             <div
               className="h-full transition-all duration-300"
-              style={{ width: `${putOIPercent}%`, backgroundColor: '#EF444480' }}
+              style={{ width: `${putOIPercent}%`, backgroundColor: '#FF724380' }}
             />
           </div>
         </div>
@@ -109,7 +109,7 @@ export function OptionsSection({ symbol, expanded }: { symbol: string; expanded?
       <div className="grid grid-cols-2 gap-2">
         <div className="bg-white/[0.03] rounded p-2">
           <div className="text-[10px] text-[#999999]">Call Volume</div>
-          <div className="text-[11px] font-mono text-green-400">
+          <div className="text-[11px] font-mono text-[#2EC08B]">
             {formatCurrency(data.callVolume).replace('$', '')}
           </div>
           <div className="text-[10px] text-[#999999] mt-0.5">
@@ -118,7 +118,7 @@ export function OptionsSection({ symbol, expanded }: { symbol: string; expanded?
         </div>
         <div className="bg-white/[0.03] rounded p-2">
           <div className="text-[10px] text-[#999999]">Put Volume</div>
-          <div className="text-[11px] font-mono text-red-400">
+          <div className="text-[11px] font-mono text-[#FF7243]">
             {formatCurrency(data.putVolume).replace('$', '')}
           </div>
           <div className="text-[10px] text-[#999999] mt-0.5">
@@ -131,13 +131,13 @@ export function OptionsSection({ symbol, expanded }: { symbol: string; expanded?
       <div className="grid grid-cols-2 gap-2">
         <div className="bg-white/[0.03] rounded p-2">
           <div className="text-[10px] text-[#999999]">Call OI</div>
-          <div className="text-[11px] font-mono text-green-400">
+          <div className="text-[11px] font-mono text-[#2EC08B]">
             {formatCurrency(data.callOI).replace('$', '')}
           </div>
         </div>
         <div className="bg-white/[0.03] rounded p-2">
           <div className="text-[10px] text-[#999999]">Put OI</div>
-          <div className="text-[11px] font-mono text-red-400">
+          <div className="text-[11px] font-mono text-[#FF7243]">
             {formatCurrency(data.putOI).replace('$', '')}
           </div>
         </div>

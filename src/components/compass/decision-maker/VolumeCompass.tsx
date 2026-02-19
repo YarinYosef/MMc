@@ -9,10 +9,10 @@ interface Props {
 }
 
 function rvolColor(rv: number): string {
-  if (rv > 2.0) return '#22C55E';
+  if (rv > 2.0) return '#2EC08B';
   if (rv > 1.5) return '#86EFAC';
   if (rv > 0.8) return '#F59E0B';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 export function VolumeCompass({ state, expanded }: Props) {
@@ -24,8 +24,8 @@ export function VolumeCompass({ state, expanded }: Props) {
   const accumDays = Number(d.accumulationDays);
 
   const rVolCol = rvolColor(rVol);
-  const ftColor = ft === 'High' ? '#22C55E' : ft === 'Moderate' ? '#F59E0B' : '#EF4444';
-  const expColor = exp > 0 ? '#22C55E' : '#EF4444';
+  const ftColor = ft === 'High' ? '#2EC08B' : ft === 'Moderate' ? '#F59E0B' : '#FF7243';
+  const expColor = exp > 0 ? '#2EC08B' : '#FF7243';
 
   const priceData = useMemo(() => {
     const raw = String(d.priceHistory || '');
@@ -106,9 +106,9 @@ export function VolumeCompass({ state, expanded }: Props) {
                 key={i}
                 className="w-2 h-2 rounded-full"
                 style={{
-                  backgroundColor: ft === 'High' ? (i <= 3 ? '#22C55E' : 'rgba(255,255,255,0.1)') :
+                  backgroundColor: ft === 'High' ? (i <= 3 ? '#2EC08B' : 'rgba(255,255,255,0.1)') :
                     ft === 'Moderate' ? (i <= 2 ? '#F59E0B' : 'rgba(255,255,255,0.1)') :
-                    (i <= 1 ? '#EF4444' : 'rgba(255,255,255,0.1)'),
+                    (i <= 1 ? '#FF7243' : 'rgba(255,255,255,0.1)'),
                 }}
               />
             ))}
@@ -129,17 +129,17 @@ export function VolumeCompass({ state, expanded }: Props) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-red-500/60" />
+              <div className="w-2 h-2 rounded-full bg-[#FF7243]/60" />
               <span className="text-[10px] text-[#777777]">Distribution</span>
             </div>
-            <span className="text-[11px] font-mono font-bold text-red-400">{distDays}</span>
+            <span className="text-[11px] font-mono font-bold text-[#FF7243]">{distDays}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-green-500/60" />
+              <div className="w-2 h-2 rounded-full bg-[#2EC08B]/60" />
               <span className="text-[10px] text-[#777777]">Accumulation</span>
             </div>
-            <span className="text-[11px] font-mono font-bold text-green-400">{accumDays}</span>
+            <span className="text-[11px] font-mono font-bold text-[#2EC08B]">{accumDays}</span>
           </div>
         </div>
         {/* D/A ratio bar */}
@@ -148,14 +148,14 @@ export function VolumeCompass({ state, expanded }: Props) {
             className="h-full transition-all duration-500"
             style={{
               width: `${distDays + accumDays > 0 ? (distDays / (distDays + accumDays)) * 100 : 50}%`,
-              backgroundColor: '#EF444480',
+              backgroundColor: '#FF724380',
             }}
           />
           <div
             className="h-full transition-all duration-500"
             style={{
               width: `${distDays + accumDays > 0 ? (accumDays / (distDays + accumDays)) * 100 : 50}%`,
-              backgroundColor: '#22C55E80',
+              backgroundColor: '#2EC08B80',
             }}
           />
         </div>
@@ -213,7 +213,7 @@ function CombinedChart({ priceData, volumeData }: { priceData: number[]; volumeD
             y={y}
             width={Math.max(vStep - 2, 1)}
             height={h}
-            fill={isAboveAvg ? '#22C55E50' : '#64748B30'}
+            fill={isAboveAvg ? '#2EC08B50' : '#64748B30'}
             rx="0.5"
           />
         );

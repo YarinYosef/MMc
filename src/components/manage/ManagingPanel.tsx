@@ -29,7 +29,13 @@ export function ManagingPanel() {
   };
 
   return (
-    <div className="bg-[#131313] border border-black rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
+    <div
+      className="bg-[#131313] border border-black rounded-lg overflow-hidden flex flex-col max-h-[80vh]"
+      style={{
+        boxShadow:
+          'rgba(0,0,0,0.2) 0px 2px 4px 0px, rgba(255,255,255,0.06) 0px 1px 0px 0px inset, rgba(255,255,255,0.06) -1px 0px 0px 0px inset, rgba(255,255,255,0.06) 1px 0px 0px 0px inset, rgba(255,255,255,0.06) 0px -1px 0px 0px inset',
+      }}
+    >
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-black">
         <h2 className="text-sm font-semibold text-white">Managing Panel</h2>
@@ -47,9 +53,9 @@ export function ManagingPanel() {
             key={tab.id}
             onClick={() => setManagingTab(tab.id)}
             className={cn(
-              'flex-1 px-3 py-2 text-xs font-medium transition-colors',
+              'flex-1 px-3 py-2 text-xs font-medium transition-colors duration-200',
               managingPane.activeTab === tab.id
-                ? 'text-[#AB9FF2] border-b-2 border-blue-400'
+                ? 'text-[#AB9FF2] border-b-2 border-[#AB9FF2]'
                 : 'text-[#999999] hover:text-white'
             )}
           >
@@ -64,7 +70,7 @@ export function ManagingPanel() {
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-2 border-t border-white/[0.08] text-center">
+      <div className="px-4 py-2 border-t border-black text-center">
         <span className="text-[10px] text-[#999999]">Press Shift+Space to toggle</span>
       </div>
     </div>

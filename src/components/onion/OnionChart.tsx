@@ -26,7 +26,7 @@ const ALL_ETFS = SECTOR_HIERARCHY.map((s) => ({
 // Distinct color palettes for inner rings (not derived from parent sector)
 const INNER_PALETTE_1 = ['#F472B6', '#A78BFA', '#34D399', '#FBBF24', '#60A5FA', '#FB923C', '#E879F9', '#2DD4BF'];
 const INNER_PALETTE_2 = ['#38BDF8', '#FB7185', '#A3E635', '#C084FC', '#FACC15', '#4ADE80', '#F87171', '#818CF8'];
-const INNER_PALETTE_3 = ['#22D3EE', '#F97316', '#A78BFA', '#10B981', '#EF4444', '#6366F1', '#F59E0B', '#EC4899'];
+const INNER_PALETTE_3 = ['#22D3EE', '#F97316', '#A78BFA', '#10B981', '#FF7243', '#6366F1', '#F59E0B', '#EC4899'];
 
 interface SegmentData {
   id: string;

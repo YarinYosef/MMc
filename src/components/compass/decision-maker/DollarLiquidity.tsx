@@ -8,16 +8,16 @@ interface Props {
 }
 
 function stateColor(s: string): string {
-  if (s === 'Expanding' || s === 'Bullish') return '#22C55E';
-  if (s === 'Contracting' || s === 'Bearish') return '#EF4444';
+  if (s === 'Expanding' || s === 'Bullish') return '#2EC08B';
+  if (s === 'Contracting' || s === 'Bearish') return '#FF7243';
   return '#F59E0B';
 }
 
 function corrColor(val: number): string {
-  if (val > 0.3) return '#22C55E';
+  if (val > 0.3) return '#2EC08B';
   if (val > 0) return '#86EFAC';
   if (val > -0.3) return '#FCA5A5';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 export function DollarLiquidity({ state, expanded }: Props) {
@@ -41,7 +41,7 @@ export function DollarLiquidity({ state, expanded }: Props) {
         <svg width="10" height="10" viewBox="0 0 10 10" className="shrink-0">
           <path
             d={trendAccel > 0 ? 'M5 8 L5 2 M3 4 L5 2 L7 4' : trendAccel < 0 ? 'M5 2 L5 8 M3 6 L5 8 L7 6' : 'M2 5 L8 5'}
-            stroke={trendAccel > 0 ? '#22C55E' : trendAccel < 0 ? '#EF4444' : '#9CA3AF'}
+            stroke={trendAccel > 0 ? '#2EC08B' : trendAccel < 0 ? '#FF7243' : '#9CA3AF'}
             strokeWidth="1.5"
             fill="none"
             strokeLinecap="round"
@@ -92,7 +92,7 @@ export function DollarLiquidity({ state, expanded }: Props) {
         <div className="flex items-center justify-between mb-1">
           <div className="flex items-center gap-2">
             <span className="text-[10px] text-[#777777]">Trend Acceleration</span>
-            <span className="text-[11px] font-mono font-bold" style={{ color: trendAccel > 0 ? '#22C55E' : trendAccel < 0 ? '#EF4444' : '#9CA3AF' }}>
+            <span className="text-[11px] font-mono font-bold" style={{ color: trendAccel > 0 ? '#2EC08B' : trendAccel < 0 ? '#FF7243' : '#9CA3AF' }}>
               {trendAccel > 0 ? '+' : ''}{d.trendAcceleration}
             </span>
           </div>
@@ -107,7 +107,7 @@ export function DollarLiquidity({ state, expanded }: Props) {
             className="h-full rounded-full transition-all duration-500"
             style={{
               width: `${compression}%`,
-              backgroundColor: compression > 70 ? '#EF4444' : compression > 40 ? '#F59E0B' : '#22C55E',
+              backgroundColor: compression > 70 ? '#FF7243' : compression > 40 ? '#F59E0B' : '#2EC08B',
             }}
           />
         </div>
@@ -142,7 +142,7 @@ export function DollarLiquidity({ state, expanded }: Props) {
 }
 
 function MetricCard({ label, value, sublabel, trend }: { label: string; value: string; sublabel: string; trend: 'up' | 'down' | 'flat' }) {
-  const trendColor = trend === 'up' ? '#22C55E' : trend === 'down' ? '#EF4444' : '#9CA3AF';
+  const trendColor = trend === 'up' ? '#2EC08B' : trend === 'down' ? '#FF7243' : '#9CA3AF';
   return (
     <div className="bg-white/[0.03] rounded px-2 py-1.5">
       <div className="flex items-center justify-between">

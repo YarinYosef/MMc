@@ -8,16 +8,16 @@ interface Props {
 }
 
 function riskColor(label: string): string {
-  if (label === 'Crowded') return '#EF4444';
+  if (label === 'Crowded') return '#FF7243';
   if (label === 'Stretched') return '#F59E0B';
-  return '#22C55E';
+  return '#2EC08B';
 }
 
 function gaugeColor(val: number): string {
-  if (val > 70) return '#EF4444';
+  if (val > 70) return '#FF7243';
   if (val > 50) return '#F59E0B';
   if (val > 30) return '#86EFAC';
-  return '#22C55E';
+  return '#2EC08B';
 }
 
 export function FuturesPositioning({ state, expanded }: Props) {
@@ -107,13 +107,13 @@ export function FuturesPositioning({ state, expanded }: Props) {
       <div className="border-t border-white/[0.08] pt-2 space-y-1.5">
         <div className="flex justify-between text-[11px]">
           <span className="text-[#777777]">Net Speculative</span>
-          <span className="font-mono font-bold" style={{ color: netSpec > 0 ? '#22C55E' : '#EF4444' }}>
+          <span className="font-mono font-bold" style={{ color: netSpec > 0 ? '#2EC08B' : '#FF7243' }}>
             {netSpec > 0 ? '+' : ''}{netSpec.toLocaleString()}
           </span>
         </div>
         <div className="flex justify-between text-[11px]">
           <span className="text-[#777777]">Commercial Hedging</span>
-          <span className="font-mono font-bold" style={{ color: comHedging > 0 ? '#22C55E' : '#EF4444' }}>
+          <span className="font-mono font-bold" style={{ color: comHedging > 0 ? '#2EC08B' : '#FF7243' }}>
             {comHedging > 0 ? '+' : ''}{comHedging.toLocaleString()}
           </span>
         </div>

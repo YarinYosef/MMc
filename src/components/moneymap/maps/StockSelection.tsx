@@ -85,12 +85,12 @@ export function StockSelection() {
                   <div className="text-[#999999] text-[10px]">{r.sector}</div>
                 </td>
                 <td className="py-1 px-1.5 text-right text-white">${r.price.toFixed(2)}</td>
-                <td className={`py-1 px-1.5 text-right ${r.changePercent >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                <td className={`py-1 px-1.5 text-right ${r.changePercent >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'}`}>
                   {formatPercent(r.changePercent)}
                 </td>
                 <td className="py-1 px-1.5 text-right text-[#999999]">{formatVolume(r.volume)}</td>
                 <td className="py-1 px-1.5 text-right">
-                  <span className={`font-bold ${r.score >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                  <span className={`font-bold ${r.score >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'}`}>
                     {r.score > 0 ? '+' : ''}{r.score.toFixed(1)}
                   </span>
                 </td>

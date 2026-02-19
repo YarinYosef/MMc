@@ -6,9 +6,9 @@ import { useDetailsStore } from '@/stores/useDetailsStore';
 
 const EVENT_TYPES = [
   { type: 'earnings', color: '#AB9FF2', label: 'Earnings' },
-  { type: 'dividend', color: '#22C55E', label: 'Dividend' },
+  { type: 'dividend', color: '#2EC08B', label: 'Dividend' },
   { type: 'split', color: '#F59E0B', label: 'Split' },
-  { type: 'fda', color: '#EF4444', label: 'FDA/Reg' },
+  { type: 'fda', color: '#FF7243', label: 'FDA/Reg' },
   { type: 'conference', color: '#8B5CF6', label: 'Conference' },
   { type: 'lockup', color: '#EC4899', label: 'Lock-up Exp' },
 ];
@@ -62,7 +62,7 @@ export function CalendarOverlay() {
       <div className="flex-1 min-h-0 overflow-y-auto px-2">
         {events.map((event, i) => {
           const eventDef = EVENT_TYPES.find((e) => e.type === event.type);
-          const impactColor = event.impact === 'high' ? 'text-red-400' : event.impact === 'medium' ? 'text-amber-400' : 'text-[#999999]';
+          const impactColor = event.impact === 'high' ? 'text-[#FF7243]' : event.impact === 'medium' ? 'text-[#CD8554]' : 'text-[#999999]';
           return (
             <div
               key={i}

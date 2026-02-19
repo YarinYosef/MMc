@@ -145,7 +145,7 @@ export function NewsPriceReactionSection({ symbol, expanded }: { symbol: string;
                     cx={cx}
                     cy={cy}
                     r={6}
-                    fill={value >= 0 ? '#22C55E' : '#EF4444'}
+                    fill={value >= 0 ? '#2EC08B' : '#FF7243'}
                     stroke={value >= 0 ? '#86EFAC' : '#FCA5A5'}
                     strokeWidth={2}
                     opacity={0.9}
@@ -163,11 +163,11 @@ export function NewsPriceReactionSection({ symbol, expanded }: { symbol: string;
           <span className="text-[10px] text-[#999999]">Price</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-2 h-2 rounded-full bg-green-500" />
+          <div className="w-2 h-2 rounded-full bg-[#2EC08B]" />
           <span className="text-[10px] text-[#999999]">Positive News</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-2 h-2 rounded-full bg-red-500" />
+          <div className="w-2 h-2 rounded-full bg-[#FF7243]" />
           <span className="text-[10px] text-[#999999]">Negative News</span>
         </div>
       </div>

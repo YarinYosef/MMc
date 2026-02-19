@@ -18,9 +18,9 @@ interface FeedbackEntry {
 
 const SEVERITY_COLORS: Record<string, string> = {
   low: 'text-[#999999] bg-[#777777]/20',
-  medium: 'text-amber-400 bg-amber-500/20',
+  medium: 'text-[#CD8554] bg-[#CD8554]/20',
   high: 'text-orange-400 bg-orange-500/20',
-  critical: 'text-red-400 bg-red-500/20',
+  critical: 'text-[#FF7243] bg-[#FF7243]/20',
 };
 
 const TYPE_LABELS: Record<string, string> = {
@@ -129,7 +129,7 @@ export function DevFeedback() {
           <button
             onClick={submitFeedback}
             disabled={!form.title.trim()}
-            className="px-3 py-1.5 text-[10px] rounded bg-green-600 text-white hover:bg-green-500 disabled:opacity-40"
+            className="px-3 py-1.5 text-[10px] rounded bg-[#2EC08B] text-white hover:bg-[#2EC08B] disabled:opacity-40"
           >
             Submit
           </button>
@@ -181,7 +181,7 @@ export function DevFeedback() {
               </div>
               <button
                 onClick={() => deleteFeedback(entry.id)}
-                className="text-[10px] text-[#777777] hover:text-red-400 flex-shrink-0"
+                className="text-[10px] text-[#777777] hover:text-[#FF7243] flex-shrink-0"
               >
                 x
               </button>

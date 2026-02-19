@@ -8,9 +8,9 @@ interface Props {
 }
 
 const TIME_COLORS: Record<string, string> = {
-  green: '#22C55E',
+  green: '#2EC08B',
   yellow: '#F59E0B',
-  red: '#EF4444',
+  red: '#FF7243',
   gray: '#6B7280',
 };
 
@@ -91,7 +91,7 @@ export function TimeCompass({ state, expanded }: Props) {
 
 function MetricBar({ label, value, invert = false, description }: { label: string; value: number; invert?: boolean; description: string }) {
   const adjusted = invert ? 100 - value : value;
-  const c = adjusted > 65 ? '#22C55E' : adjusted > 40 ? '#F59E0B' : '#EF4444';
+  const c = adjusted > 65 ? '#2EC08B' : adjusted > 40 ? '#F59E0B' : '#FF7243';
 
   return (
     <div>
@@ -113,7 +113,7 @@ function MetricBar({ label, value, invert = false, description }: { label: strin
 }
 
 function CalendarItem({ label, value, highlight = false, danger = false }: { label: string; value: string; highlight?: boolean; danger?: boolean }) {
-  const textColor = danger ? '#EF4444' : highlight ? '#F59E0B' : '#9CA3AF';
+  const textColor = danger ? '#FF7243' : highlight ? '#F59E0B' : '#9CA3AF';
   return (
     <div className="bg-white/[0.03] rounded px-2 py-1">
       <div className="text-[9px] text-[#777777]">{label}</div>

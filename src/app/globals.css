@@ -25,9 +25,9 @@
   --text-muted: #777777;
   --text-disabled: #555555;
 
-  /* Chart colors */
-  --chart-positive: #22c55e;
-  --chart-negative: #ef4444;
+  /* Chart colors — Phantom Trade tokens */
+  --chart-positive: #2ec08b;
+  --chart-negative: #ff7243;
   --chart-neutral: #6b7280;
   --chart-accent: #ab9ff2;
   --chart-warning: #f59e0b;
@@ -35,17 +35,17 @@
   --chart-grid: rgba(255, 255, 255, 0.03);
 
   /* Compass status */
-  --compass-bullish: #22c55e;
+  --compass-bullish: #2ec08b;
   --compass-bullish-light: #86efac;
   --compass-neutral: #9ca3af;
   --compass-bearish-light: #fca5a5;
-  --compass-bearish: #ef4444;
+  --compass-bearish: #ff7243;
 
   /* News feed */
   --news-global: #ab9ff2;
   --news-trend: #8b5cf6;
   --news-looking: #f59e0b;
-  --news-watchlist: #22c55e;
+  --news-watchlist: #2ec08b;
 
   /* Z-index layers */
   --z-base: 0;
@@ -59,18 +59,17 @@
   --z-rating: 100;
 
   /* Borders */
-  --border-subtle: #000000;
+  --border-subtle: rgba(255, 255, 255, 0.06);
   --border-default: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.15);
 
   /* Spacing */
   --panel-padding: 8px;
-  --widget-gap: 4px;
+  --widget-gap: 1px;
   --section-gap: 8px;
 
-  /* Border Radius */
-  --radius-widget: 0.8rem;
-  /* 8px default, can be changed here */
+  /* Border Radius — Phantom Trade tokens */
+  --radius-widget: 8px;
 }
 
 @theme inline {

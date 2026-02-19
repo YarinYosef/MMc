@@ -8,11 +8,11 @@ interface Props {
 }
 
 function qualityColor(q: number): string {
-  if (q > 75) return '#22C55E';
+  if (q > 75) return '#2EC08B';
   if (q > 55) return '#86EFAC';
   if (q > 40) return '#F59E0B';
   if (q > 25) return '#FCA5A5';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 function qualityLabel(q: number): string {
@@ -30,8 +30,8 @@ export function TrendQuality({ state, expanded }: Props) {
   const trendLine = d.trendLine as string;
   const maAlignment = d.maAlignment as string;
 
-  const trendColor = trendLine === 'Up' ? '#22C55E' : trendLine === 'Down' ? '#EF4444' : '#9CA3AF';
-  const maColor = maAlignment === 'Bullish' ? '#22C55E' : maAlignment === 'Bearish' ? '#EF4444' : '#F59E0B';
+  const trendColor = trendLine === 'Up' ? '#2EC08B' : trendLine === 'Down' ? '#FF7243' : '#9CA3AF';
+  const maColor = maAlignment === 'Bullish' ? '#2EC08B' : maAlignment === 'Bearish' ? '#FF7243' : '#F59E0B';
 
   if (!expanded) {
     return (
@@ -78,10 +78,10 @@ export function TrendQuality({ state, expanded }: Props) {
                 style={{
                   width: `${quality}%`,
                   background: quality > 60
-                    ? 'linear-gradient(to right, #F59E0B, #22C55E)'
+                    ? 'linear-gradient(to right, #F59E0B, #2EC08B)'
                     : quality > 35
-                    ? 'linear-gradient(to right, #EF4444, #F59E0B)'
-                    : '#EF4444',
+                    ? 'linear-gradient(to right, #FF7243, #F59E0B)'
+                    : '#FF7243',
                 }}
               />
             </div>

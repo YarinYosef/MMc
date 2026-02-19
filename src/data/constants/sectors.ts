@@ -51,7 +51,7 @@ export const SECTOR_HIERARCHY: SectorDef[] = [
   {
     name: 'Consumer',
     etf: 'XLY',
-    color: '#EF4444',
+    color: '#FF7243',
     subSectors: [
       { name: 'E-Commerce', industries: ['Internet Retail', 'Marketplace Platforms', 'Direct-to-Consumer', 'Subscription Commerce', 'Social Commerce'] },
       { name: 'Retail', industries: ['General Merchandise', 'Home Improvement', 'Specialty Retail', 'Warehouse Clubs', 'Dollar Stores'] },
@@ -79,7 +79,7 @@ export const ASSET_CLASSES = [
   { name: 'Bonds', etf: 'TLT', color: '#10B981' },
   { name: 'Commodities', etf: 'DBC', color: '#F59E0B' },
   { name: 'Crypto', etf: 'BITO', color: '#8B5CF6' },
-  { name: 'Forex (DXY)', etf: 'UUP', color: '#EF4444' },
+  { name: 'Forex (DXY)', etf: 'UUP', color: '#FF7243' },
 ] as const;
 
 export const FACTOR_STYLES = [

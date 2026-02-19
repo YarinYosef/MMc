@@ -85,7 +85,7 @@ export function TodoList() {
         {completedCount > 0 && (
           <button
             onClick={clearCompleted}
-            className="text-[10px] text-[#777777] hover:text-red-400"
+            className="text-[10px] text-[#777777] hover:text-[#FF7243]"
           >
             Clear completed
           </button>
@@ -110,7 +110,7 @@ export function TodoList() {
               onClick={() => toggleTodo(todo.id)}
               className={`w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center ${
                 todo.completed
-                  ? 'bg-green-600 border-green-600'
+                  ? 'bg-[#2EC08B] border-[#2EC08B]'
                   : 'border-[#777777] hover:border-[#AB9FF2]'
               }`}
             >
@@ -144,7 +144,7 @@ export function TodoList() {
               </button>
               <button
                 onClick={() => deleteTodo(todo.id)}
-                className="text-[10px] text-[#777777] hover:text-red-400 px-0.5 ml-1"
+                className="text-[10px] text-[#777777] hover:text-[#FF7243] px-0.5 ml-1"
               >
                 x
               </button>

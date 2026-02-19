@@ -135,18 +135,18 @@ describe('DetailsPanel', () => {
   it('renders ticker information', () => {
     render(<DetailsPanel />);
     expect(screen.getByText('MSFT')).toBeInTheDocument();
-    expect(screen.getByText('Microsoft Corp')).toBeInTheDocument();
   });
 
-  it('renders all 7 section headers', () => {
+  it('renders all 6 sortable section headers plus pinned order book', () => {
     render(<DetailsPanel />);
     expect(screen.getByText('Fundamentals')).toBeInTheDocument();
     expect(screen.getByText('Financials')).toBeInTheDocument();
     expect(screen.getByText('Volume')).toBeInTheDocument();
     expect(screen.getByText('Options')).toBeInTheDocument();
-    expect(screen.getByText('Order Book')).toBeInTheDocument();
     expect(screen.getByText('Insider')).toBeInTheDocument();
     expect(screen.getByText('News/Price')).toBeInTheDocument();
+    // Order Book is pinned (rendered directly, not as a sortable section header)
+    expect(screen.getByTestId('orderbook-section')).toBeInTheDocument();
   });
 
   it('renders all section content when not minimized', () => {
@@ -163,9 +163,9 @@ describe('DetailsPanel', () => {
   it('clicking toggle button toggles minimized state', () => {
     render(<DetailsPanel />);
     // The toggle buttons have the chevron SVG. Find all toggle buttons
-    // They have class "text-[#777777] hover:text-white"
+    // They have class "text-[#777777] hover:text-[#999999]"
     const toggleButtons = document.querySelectorAll('button.text-\\[\\#777777\\]');
-    expect(toggleButtons.length).toBeGreaterThanOrEqual(7);
+    expect(toggleButtons.length).toBeGreaterThanOrEqual(6);
     // Click the first toggle (Fundamentals)
     fireEvent.click(toggleButtons[0]);
     expect(useDetailsStore.getState().sectionStates.fundamentals.minimized).toBe(true);
@@ -177,8 +177,8 @@ describe('DetailsPanel', () => {
     expect(screen.getByText('Select a ticker')).toBeInTheDocument();
   });
 
-  it('shows price', () => {
+  it('shows change percent', () => {
     render(<DetailsPanel />);
-    expect(screen.getByText('$400.50')).toBeInTheDocument();
+    expect(screen.getByText('+0.63%')).toBeInTheDocument();
   });
 });

@@ -105,7 +105,7 @@ export function HedgeMap() {
       </div>
       <div className="flex items-center gap-2 px-2 py-1 border-t border-white/[0.08] text-[9px] text-[#999999]">
         <span className="flex items-center gap-1">
-          <span className="inline-block w-2 h-2 rounded-sm" style={{ backgroundColor: '#EF4444' }} />
+          <span className="inline-block w-2 h-2 rounded-sm" style={{ backgroundColor: '#FF7243' }} />
           -1
         </span>
         <span className="flex items-center gap-1">
@@ -113,7 +113,7 @@ export function HedgeMap() {
           0
         </span>
         <span className="flex items-center gap-1">
-          <span className="inline-block w-2 h-2 rounded-sm" style={{ backgroundColor: '#22C55E' }} />
+          <span className="inline-block w-2 h-2 rounded-sm" style={{ backgroundColor: '#2EC08B' }} />
           +1
         </span>
       </div>

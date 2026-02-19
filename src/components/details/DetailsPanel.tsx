@@ -89,7 +89,7 @@ function SortableSection({ id, symbol, minimized, onToggle }: SortableSectionPro
       ref={setNodeRef}
       style={style}
       className={cn(
-        'bg-white/[0.03] rounded border border-black mb-2',
+        'bg-white/[0.03] rounded-lg border border-black mb-2',
         isDragging && 'opacity-50 z-50'
       )}
     >
@@ -212,29 +212,37 @@ export function DetailsPanel() {
   }, [expandedChart, selectedSymbol]);
 
   return (
-    <div className="h-full flex flex-col bg-[#131313] border border-black rounded-[var(--radius-widget)] min-w-0 overflow-hidden">
-      {/* Ticker header */}
-      <div className="px-3 py-2 border-b border-black shrink-0">
+    <div
+      className="h-full flex flex-col bg-[#131313] border border-black rounded-[var(--radius-widget)] min-w-0 overflow-hidden"
+      style={{ boxShadow: 'rgba(255,255,255,0.03) 0px 1px 0px 0px inset, rgba(255,255,255,0.03) -1px 0px 0px 0px inset, rgba(255,255,255,0.03) 1px 0px 0px 0px inset' }}
+    >
+      {/* Ticker header - compact (metrics shown in top info bar) */}
+      <div className="px-3 py-1.5 border-b border-black shrink-0">
         {ticker ? (
-          <div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-sm font-bold text-white">{ticker.symbol}</span>
-              <span className="text-lg font-mono text-white">${ticker.price.toFixed(2)}</span>
-            </div>
-            <div
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold text-white">{ticker.symbol}</span>
+            <span
               className={cn(
-                'text-xs font-mono',
-                ticker.change >= 0 ? 'text-green-400' : 'text-red-400'
+                'text-[10px] font-mono',
+                ticker.change >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'
               )}
             >
-              {ticker.change >= 0 ? '+' : ''}{ticker.change.toFixed(2)} ({formatPercent(ticker.changePercent)})
-            </div>
-            <div className="text-[10px] text-[#999999] mt-0.5">{ticker.name}</div>
+              {formatPercent(ticker.changePercent)}
+            </span>
           </div>
         ) : (
           <div className="text-sm text-[#999999]">Select a ticker</div>
         )}
       </div>
+
+      {/* Pinned Order Book */}
+      {selectedSymbol && (
+        <div className="shrink-0 border-b border-black">
+          <div className="p-2">
+            <OrderBookSection symbol={selectedSymbol} />
+          </div>
+        </div>
+      )}
 
       {/* Scrollable sections - all stacked vertically */}
       <ScrollArea className="flex-1">

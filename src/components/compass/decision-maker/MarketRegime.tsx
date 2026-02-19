@@ -13,11 +13,11 @@ const SUB_COMPASS_LABELS: { key: string; label: string; icon: string }[] = [
 ];
 
 function valueColor(v: number): string {
-  if (v > 30) return '#22C55E';
+  if (v > 30) return '#2EC08B';
   if (v > 10) return '#86EFAC';
   if (v > -10) return '#9CA3AF';
   if (v > -30) return '#FCA5A5';
-  return '#EF4444';
+  return '#FF7243';
 }
 
 function signalLabel(v: number): string {
@@ -39,7 +39,7 @@ export function MarketRegime({ state, expanded }: Props) {
   const trendStrength = Number(d.trendStrength);
   const daysInRegime = Number(d.daysInRegime);
   const regimeColor =
-    regime === 'Risk-On' ? '#22C55E' : regime === 'Risk-Off' ? '#EF4444' : '#F59E0B';
+    regime === 'Risk-On' ? '#2EC08B' : regime === 'Risk-Off' ? '#FF7243' : '#F59E0B';
 
   // Compute aggregate from sub-compasses
   const subValues = SUB_COMPASS_LABELS.filter(s => s.key !== 'subCorrelation').map(s => Number(d[s.key]) || 0);
@@ -104,9 +104,9 @@ export function MarketRegime({ state, expanded }: Props) {
           Day <span className="font-mono text-[#999999]">{daysInRegime}</span>
         </span>
         <span className="text-[#777777]">|</span>
-        <span className="text-green-500/70">{bullishCount}</span>
+        <span className="text-[#2EC08B]/70">{bullishCount}</span>
         <span className="text-[#777777]">/</span>
-        <span className="text-red-500/70">{bearishCount}</span>
+        <span className="text-[#FF7243]/70">{bearishCount}</span>
       </div>
 
       {/* Sub-compass bars */}
@@ -114,7 +114,7 @@ export function MarketRegime({ state, expanded }: Props) {
         {SUB_COMPASS_LABELS.map(({ key, label, icon }) => {
           const val = Number(d[key]) || 0;
           const isCorrelation = key === 'subCorrelation';
-          const color = isCorrelation ? (val > 60 ? '#EF4444' : val > 40 ? '#F59E0B' : '#22C55E') : valueColor(val);
+          const color = isCorrelation ? (val > 60 ? '#FF7243' : val > 40 ? '#F59E0B' : '#2EC08B') : valueColor(val);
           const displayVal = isCorrelation
             ? `${val.toFixed(0)}%`
             : `${val > 0 ? '+' : ''}${val.toFixed(1)}`;

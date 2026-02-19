@@ -93,7 +93,7 @@ export function NotesEditor() {
                 <div className="flex gap-1 mt-1.5">
                   <button
                     onClick={() => saveNote(note.id)}
-                    className="px-2 py-0.5 text-[10px] rounded bg-green-600 text-white hover:bg-green-500"
+                    className="px-2 py-0.5 text-[10px] rounded bg-[#2EC08B] text-white hover:bg-[#2EC08B]"
                   >
                     Save
                   </button>
@@ -116,7 +116,7 @@ export function NotesEditor() {
                   </p>
                   <button
                     onClick={() => deleteNote(note.id)}
-                    className="text-[#777777] hover:text-red-400 text-[10px] flex-shrink-0"
+                    className="text-[#777777] hover:text-[#FF7243] text-[10px] flex-shrink-0"
                   >
                     Del
                   </button>

@@ -46,8 +46,8 @@ export function MicrosoftProxy({ state, expanded }: Props) {
     return raw ? raw.split(',').map(Number).filter(n => !isNaN(n)) : [];
   }, [d.priceHistory]);
 
-  const breakoutColor = breakout === 'Breakout' ? '#22C55E' : breakout === 'Near ATH' ? '#86EFAC' : breakout === 'Pullback' ? '#F59E0B' : '#EF4444';
-  const gapColor = gapDir === 'green' ? '#22C55E' : '#EF4444';
+  const breakoutColor = breakout === 'Breakout' ? '#2EC08B' : breakout === 'Near ATH' ? '#86EFAC' : breakout === 'Pullback' ? '#F59E0B' : '#FF7243';
+  const gapColor = gapDir === 'green' ? '#2EC08B' : '#FF7243';
 
   if (!expanded) {
     return (
@@ -109,10 +109,10 @@ export function MicrosoftProxy({ state, expanded }: Props) {
             style={{
               width: `${Math.max(100 - athDist * 3, 5)}%`,
               background: athDist < 5
-                ? 'linear-gradient(to right, #22C55E, #86EFAC)'
+                ? 'linear-gradient(to right, #2EC08B, #86EFAC)'
                 : athDist < 15
                 ? 'linear-gradient(to right, #F59E0B, #FBBF24)'
-                : 'linear-gradient(to right, #EF4444, #FCA5A5)',
+                : 'linear-gradient(to right, #FF7243, #FCA5A5)',
             }}
           />
           {/* ATH marker */}
@@ -140,14 +140,14 @@ export function MicrosoftProxy({ state, expanded }: Props) {
       <div className="grid grid-cols-3 gap-2 text-[11px]">
         <div className="bg-white/[0.03] rounded px-2 py-1">
           <div className="text-[9px] text-[#777777]">vs Index</div>
-          <div className="font-mono font-bold" style={{ color: indexComp > 0 ? '#22C55E' : '#EF4444' }}>
+          <div className="font-mono font-bold" style={{ color: indexComp > 0 ? '#2EC08B' : '#FF7243' }}>
             {indexComp > 0 ? '+' : ''}{indexComp.toFixed(2)}%
           </div>
         </div>
         <div className="bg-white/[0.03] rounded px-2 py-1">
           <div className="text-[9px] text-[#777777]">Liquidity</div>
           <div className="font-bold" style={{
-            color: liqBehavior === 'Strong' ? '#22C55E' : liqBehavior === 'Moderate' ? '#F59E0B' : '#EF4444'
+            color: liqBehavior === 'Strong' ? '#2EC08B' : liqBehavior === 'Moderate' ? '#F59E0B' : '#FF7243'
           }}>
             {liqBehavior}
           </div>

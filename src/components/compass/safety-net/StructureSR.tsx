@@ -15,7 +15,7 @@ export function StructureSR({ state, expanded }: Props) {
   const distSupport = Number(d.distanceToSupport);
   const distResistance = Number(d.distanceToResistance);
 
-  const color = status === 'Balanced' ? '#22C55E' : status === 'Imbalanced' ? '#F59E0B' : '#EF4444';
+  const color = status === 'Balanced' ? '#2EC08B' : status === 'Imbalanced' ? '#F59E0B' : '#FF7243';
 
   // Compute approximate current price from support/resistance distances
   const midPoint = (support + resistance) / 2;
@@ -47,9 +47,9 @@ export function StructureSR({ state, expanded }: Props) {
       {/* Visual price position between S/R */}
       <div className="bg-white/[0.03] rounded p-2 mb-3">
         <div className="flex justify-between text-[10px] mb-1">
-          <span className="text-green-400 font-mono">${support.toFixed(2)}</span>
+          <span className="text-[#2EC08B] font-mono">${support.toFixed(2)}</span>
           <span className="text-[9px] text-[#777777]">Price Position</span>
-          <span className="text-red-400 font-mono">${resistance.toFixed(2)}</span>
+          <span className="text-[#FF7243] font-mono">${resistance.toFixed(2)}</span>
         </div>
 
         {/* S/R range bar with price marker */}
@@ -57,12 +57,12 @@ export function StructureSR({ state, expanded }: Props) {
           {/* Green zone near support */}
           <div
             className="absolute left-0 top-0 h-full rounded-l-full"
-            style={{ width: '30%', background: 'linear-gradient(to right, #22C55E30, transparent)' }}
+            style={{ width: '30%', background: 'linear-gradient(to right, #2EC08B30, transparent)' }}
           />
           {/* Red zone near resistance */}
           <div
             className="absolute right-0 top-0 h-full rounded-r-full"
-            style={{ width: '30%', background: 'linear-gradient(to left, #EF444430, transparent)' }}
+            style={{ width: '30%', background: 'linear-gradient(to left, #FF724330, transparent)' }}
           />
           {/* Price position marker */}
           <div
@@ -85,25 +85,25 @@ export function StructureSR({ state, expanded }: Props) {
       <div className="space-y-2">
         <div>
           <div className="flex items-center justify-between mb-0.5">
-            <span className="text-[11px] text-green-400">Distance to Support</span>
-            <span className="text-[11px] font-mono text-green-400">{distSupport.toFixed(2)}%</span>
+            <span className="text-[11px] text-[#2EC08B]">Distance to Support</span>
+            <span className="text-[11px] font-mono text-[#2EC08B]">{distSupport.toFixed(2)}%</span>
           </div>
           <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
             <div
               className="h-full rounded-full transition-all duration-500"
-              style={{ width: `${Math.min(distSupport * 10, 100)}%`, backgroundColor: '#22C55E' }}
+              style={{ width: `${Math.min(distSupport * 10, 100)}%`, backgroundColor: '#2EC08B' }}
             />
           </div>
         </div>
         <div>
           <div className="flex items-center justify-between mb-0.5">
-            <span className="text-[11px] text-red-400">Distance to Resistance</span>
-            <span className="text-[11px] font-mono text-red-400">{distResistance.toFixed(2)}%</span>
+            <span className="text-[11px] text-[#FF7243]">Distance to Resistance</span>
+            <span className="text-[11px] font-mono text-[#FF7243]">{distResistance.toFixed(2)}%</span>
           </div>
           <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
             <div
               className="h-full rounded-full transition-all duration-500"
-              style={{ width: `${Math.min(distResistance * 10, 100)}%`, backgroundColor: '#EF4444' }}
+              style={{ width: `${Math.min(distResistance * 10, 100)}%`, backgroundColor: '#FF7243' }}
             />
           </div>
         </div>

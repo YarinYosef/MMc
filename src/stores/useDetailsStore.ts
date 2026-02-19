@@ -9,7 +9,6 @@ export const DEFAULT_SECTION_ORDER: DetailsSection[] = [
   'financials',
   'volume',
   'options',
-  'orderbook',
   'insider',
   'newsprice',
 ];

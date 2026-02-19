@@ -9,10 +9,10 @@ interface Props {
 
 const ANOMALY_SEVERITY: Record<string, { color: string; level: string }> = {
   'Volume Divergence': { color: '#F59E0B', level: 'Medium' },
-  'Price Gap': { color: '#EF4444', level: 'High' },
+  'Price Gap': { color: '#FF7243', level: 'High' },
   'RSI Divergence': { color: '#F97316', level: 'Medium' },
   'MACD Cross': { color: '#F59E0B', level: 'Medium' },
-  'Bollinger Break': { color: '#EF4444', level: 'High' },
+  'Bollinger Break': { color: '#FF7243', level: 'High' },
 };
 
 export function TechnicalAnomalies({ state, expanded }: Props) {
@@ -21,7 +21,7 @@ export function TechnicalAnomalies({ state, expanded }: Props) {
   const anomalyCount = Number(d.anomalyCount);
   const detected = d.detected as string;
 
-  const color = isNormal ? '#22C55E' : '#EF4444';
+  const color = isNormal ? '#2EC08B' : '#FF7243';
 
   if (!expanded) {
     return (
@@ -29,16 +29,16 @@ export function TechnicalAnomalies({ state, expanded }: Props) {
         <span className="text-[11px] font-semibold text-[#999999]">Anomaly</span>
         {isNormal ? (
           <svg width="10" height="10" viewBox="0 0 10 10" className="shrink-0">
-            <path d="M2 5 L4 7 L8 3" stroke="#22C55E" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M2 5 L4 7 L8 3" stroke="#2EC08B" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         ) : (
           <>
             <svg width="10" height="10" viewBox="0 0 10 10" className="shrink-0">
-              <path d="M5 1 L9 9 L1 9 Z" fill="none" stroke="#EF4444" strokeWidth="1.2" strokeLinejoin="round" />
-              <line x1="5" y1="4" x2="5" y2="6" stroke="#EF4444" strokeWidth="1.2" strokeLinecap="round" />
-              <circle cx="5" cy="7.5" r="0.5" fill="#EF4444" />
+              <path d="M5 1 L9 9 L1 9 Z" fill="none" stroke="#FF7243" strokeWidth="1.2" strokeLinejoin="round" />
+              <line x1="5" y1="4" x2="5" y2="6" stroke="#FF7243" strokeWidth="1.2" strokeLinecap="round" />
+              <circle cx="5" cy="7.5" r="0.5" fill="#FF7243" />
             </svg>
-            <span className="text-[10px] font-mono text-red-400">{anomalyCount}</span>
+            <span className="text-[10px] font-mono text-[#FF7243]">{anomalyCount}</span>
           </>
         )}
       </div>
@@ -60,10 +60,10 @@ export function TechnicalAnomalies({ state, expanded }: Props) {
       {isNormal ? (
         <div className="bg-white/[0.03] rounded p-3 text-center">
           <svg width="24" height="24" viewBox="0 0 24 24" className="mx-auto mb-1">
-            <circle cx="12" cy="12" r="10" fill="none" stroke="#22C55E" strokeWidth="1.5" />
-            <path d="M7 12 L10 15 L17 8" stroke="#22C55E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="12" cy="12" r="10" fill="none" stroke="#2EC08B" strokeWidth="1.5" />
+            <path d="M7 12 L10 15 L17 8" stroke="#2EC08B" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <div className="text-[11px] text-green-400 font-semibold">All Clear</div>
+          <div className="text-[11px] text-[#2EC08B] font-semibold">All Clear</div>
           <div className="text-[10px] text-[#777777] mt-0.5">No anomalies detected</div>
         </div>
       ) : (

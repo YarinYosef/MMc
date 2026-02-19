@@ -45,7 +45,7 @@ export function LayoutManager() {
                   e.stopPropagation();
                   deleteLayout(layout.id);
                 }}
-                className="text-[#777777] hover:text-red-400 ml-2"
+                className="text-[#777777] hover:text-[#FF7243] ml-2"
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M3 3L9 9M9 3L3 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />

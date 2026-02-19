@@ -149,8 +149,8 @@ export function WatchlistPanel({ standalone = false }: { standalone?: boolean })
             className={cn(
               'p-1 transition-colors',
               showNotifSettings
-                ? 'text-yellow-400 hover:text-yellow-300'
-                : 'text-[#777777] hover:text-yellow-400'
+                ? 'text-[#CD8554] hover:text-[#CD8554]'
+                : 'text-[#777777] hover:text-[#CD8554]'
             )}
             title="Notification settings"
           >

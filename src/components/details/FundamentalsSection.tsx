@@ -163,7 +163,7 @@ export function FundamentalsSection({ symbol, expanded }: { symbol: string; expa
           <Metric
             label="Daily Chg"
             value={`${ticker.change >= 0 ? '+' : ''}${ticker.change.toFixed(2)} (${ticker.changePercent >= 0 ? '+' : ''}${ticker.changePercent.toFixed(2)}%)`}
-            color={ticker.change >= 0 ? 'text-green-400' : 'text-red-400'}
+            color={ticker.change >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'}
           />
         </div>
 
@@ -230,7 +230,7 @@ export function FundamentalsSection({ symbol, expanded }: { symbol: string; expa
           <span>P/E: {ticker.pe.toFixed(1)}</span>
           <span>EPS: ${ticker.eps.toFixed(2)}</span>
           <span>Beta: {ticker.beta.toFixed(2)}</span>
-          <span className={ticker.change >= 0 ? 'text-green-400' : 'text-red-400'}>
+          <span className={ticker.change >= 0 ? 'text-[#2EC08B]' : 'text-[#FF7243]'}>
             {ticker.change >= 0 ? '+' : ''}{ticker.changePercent.toFixed(2)}%
           </span>
         </div>

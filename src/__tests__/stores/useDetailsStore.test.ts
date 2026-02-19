@@ -41,7 +41,7 @@ describe('useDetailsStore', () => {
   });
 
   it('sets section order', () => {
-    const newOrder: DetailsSection[] = ['insider', 'options', 'fundamentals', 'financials', 'volume', 'orderbook', 'newsprice'];
+    const newOrder: DetailsSection[] = ['insider', 'options', 'fundamentals', 'financials', 'volume', 'newsprice'];
     useDetailsStore.getState().setSectionOrder(newOrder);
     expect(useDetailsStore.getState().sectionOrder).toEqual(newOrder);
   });
@@ -57,8 +57,9 @@ describe('useDetailsStore', () => {
     expect(useDetailsStore.getState().expandedChart).toBeNull();
   });
 
-  it('has all 7 sections in default order', () => {
-    expect(useDetailsStore.getState().sectionOrder).toHaveLength(7);
+  it('has all 6 sortable sections in default order (orderbook is pinned)', () => {
+    expect(useDetailsStore.getState().sectionOrder).toHaveLength(6);
     expect(useDetailsStore.getState().sectionOrder).toEqual(DEFAULT_SECTION_ORDER);
+    expect(useDetailsStore.getState().sectionOrder).not.toContain('orderbook');
   });
 });

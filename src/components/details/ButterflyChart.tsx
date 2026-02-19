@@ -80,7 +80,7 @@ export function ButterflyChart({ orderBook, height = 200, expanded = false }: Bu
                 <div className={`flex-1 text-right ${colPx} ${rowPy} ${fontSize} font-mono text-white relative z-10 tabular-nums`}>
                   {bid.size.toLocaleString()}
                 </div>
-                <div className={`flex-1 text-right ${colPx} ${rowPy} ${fontSize} font-mono text-green-400 relative z-10 tabular-nums`}>
+                <div className={`flex-1 text-right ${colPx} ${rowPy} ${fontSize} font-mono text-[#2EC08B] relative z-10 tabular-nums`}>
                   ${bid.price.toFixed(2)}
                 </div>
               </div>
@@ -98,7 +98,7 @@ export function ButterflyChart({ orderBook, height = 200, expanded = false }: Bu
                     backgroundColor: 'rgba(239, 68, 68, 0.18)',
                   }}
                 />
-                <div className={`flex-1 text-left ${colPx} ${rowPy} ${fontSize} font-mono text-red-400 relative z-10 tabular-nums`}>
+                <div className={`flex-1 text-left ${colPx} ${rowPy} ${fontSize} font-mono text-[#FF7243] relative z-10 tabular-nums`}>
                   ${ask.price.toFixed(2)}
                 </div>
                 <div className={`flex-1 text-left ${colPx} ${rowPy} ${fontSize} font-mono text-white relative z-10 tabular-nums`}>
